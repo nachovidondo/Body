@@ -5,6 +5,7 @@ class Therapist(models.Model):
     name = models.CharField(max_length=200,verbose_name="Nombre")
     image = models.ImageField(upload_to="images")
     terapia = models.CharField(max_length=200,verbose_name="Terapia")
+    description = models.TextField(default="R")
     
     class Meta:
             verbose_name="Therapy"
@@ -28,3 +29,18 @@ class Therapy(models.Model):
         
     def __str__(self):
         return self.name
+    
+
+class Review(models.Model):
+    name = models.CharField(verbose_name="nombre", max_length=255)
+    description = models.TextField()
+    age = models.IntegerField()
+    
+    class Meta:
+            verbose_name="Review"
+            verbose_name_plural="Reviews"
+        
+    def __str__(self):
+        return self.name
+    
+    

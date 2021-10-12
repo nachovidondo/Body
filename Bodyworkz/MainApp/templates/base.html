@@ -49,6 +49,7 @@
         </div>
     </div>
 </div>
+</div>
 <div class="header">
     <div class="container">
         <div class="row">
@@ -61,18 +62,12 @@
                         <ul>
                             <li class="active"><a href="{% url 'index' %}" title="Home">Home</a></li>
 
-                            <li class="has-sub"><a href="{% url 'therapies'%}" title="Therapies">Therapies</a>
+                            <li class="active"><a href="{% url 'therapies'%}" title="Therapies">Therapies</a></li>
+                            <li><a href="{% url 'reviews' %}" title="Styleguide">Reviews</a> </li>
 
-                            </li>
-                            <li class="has-sub"><a href="blog-default.html" title="">News</a>
-                                <ul>
-                                    <li><a href="blog-default.html" title="Blog">Blog Default</a></li>
-                                    <li><a href="blog-single.html" title="Blog Single">Blog Single</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" title="Features">Features</a></li>
-                            <li><a href="{% url 'contacto' %}" title="Contact Us">Contact</a> </li>
                             <li><a href="{% url 'our_therapist' %}" title="Styleguide">Our Therapist</a> </li>
+
+                            <li><a href="{% url 'contacto' %}" title="Contact Us">Contact</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -156,6 +151,8 @@
             </div>
         </div>
     </div>
+</div>
+
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{% static 'ap1/js/jquery.min.js' %}"></script>

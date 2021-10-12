@@ -1,4 +1,4 @@
-from . models import Therapist, Therapy
+from . models import Therapist, Therapy, Review
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView
@@ -49,7 +49,13 @@ def our_therapist(request):
     therapist = Therapist.objects.all()
     return render(request,'our_therapist.html',{'therapist':therapist})
 
-#Our Therapist
+#Our Therapies
 def therapies(request):
     therapies= Therapy.objects.all()
     return render(request,'therapies.html',{'therapies':therapies})
+
+
+#review
+def review(request):
+    reviews= Review.objects.all()
+    return render(request,'review.html',{'reviews':reviews})

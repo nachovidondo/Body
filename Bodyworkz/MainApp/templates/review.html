@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div class="space-medium bg-default">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                <div class="section-title mb60 text-center">
+                    <!-- section title start-->
+                    <h1>Our Patient’s Review</h1>
+                </div>
+                <!-- /.section title start-->
+            </div>
+        </div>
+        {% for review in reviews %}
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="testimonial-block">
+                    <!-- testimonial block -->
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">“{{review.description}}”</p>
+                    </div>
+                    <div class="testimonial-info">
+                        <h4 class="testimonial-name">{{review.name}}</h4>
+                        <span class="testimonial-meta">{{review.age}}</span>
+                    </div>
+                </div>
+                <!--/. testimonial block -->
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
