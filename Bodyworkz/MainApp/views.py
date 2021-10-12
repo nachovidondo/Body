@@ -48,3 +48,8 @@ def automatic(request):
 def our_therapist(request):
     therapist = Therapist.objects.all()
     return render(request,'our_therapist.html',{'therapist':therapist})
+
+#Our Therapist
+def therapies(request):
+    therapies= Therapy.objects.all()
+    return render(request,'therapies.html',{'therapies':therapies})

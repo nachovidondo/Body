@@ -11,7 +11,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Flower is free physiotherapy website template that perfectly designed for therapy center, physical therapy program courses, physiotherapy clinic and physician.">
     <meta name="keywords" content="best free website templates, html5 template, free responsive website templates,website layout,html5 website templates,template for website design, medical HTML5 templates">
-    <title>Flower | Free Physiotherapy Website Template Download</title>
+    <title>Bodyworkz </title>
     <!-- Bootstrap -->
     <link href="{% static 'ap1/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Google Fonts -->
@@ -61,11 +61,8 @@
                         <ul>
                             <li class="active"><a href="{% url 'index' %}" title="Home">Home</a></li>
 
-                            <li class="has-sub"><a href="service-list.html" title="Service List">Service List</a>
-                                <ul>
-                                    <li><a href="service-list.html" title="Service List">Service List</a></li>
-                                    <li><a href="service-detail.html" title="Service Detail">Service Detail</a></li>
-                                </ul>
+                            <li class="has-sub"><a href="{% url 'therapies'%}" title="Therapies">Therapies</a>
+
                             </li>
                             <li class="has-sub"><a href="blog-default.html" title="">News</a>
                                 <ul>
