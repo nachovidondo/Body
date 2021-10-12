@@ -7,16 +7,16 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <span class="text-block time-block">  
-                                <span class="time-text">Mon to Sat: <strong>10am - 9pm</strong> - Sunday: <strong>Closed</strong></span>
+                                <span class="time-text">Mon to Sat: <strong>9am - 8pm</strong> - Sunday: <strong>Closed</strong></span>
                     </span>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8  col-xs-12">
                     <div class="top-text">
                         <span class="text-block call-block"> 
-                               <span class="call-no">+00 (123) 456 7890</span>
+                               <span class="call-no">+45 91775076</span>
                         </span>
                         <span class="text-block mail-block hidden-xs hidden-sm">  
-                                <span class="mail-text">info@yourdomain.com</span>
+                                <span class="mail-text">bodyworkz90@gmail.com</span>
                         </span>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     <div class="navigation">
                         <div id="navigation">
                             <ul>
-                                <li class="active"><a href="index.html" title="Home">Home</a></li>
+                                <li class="active"><a href="{% url 'index' %}" title="Home">Home</a></li>
 
                                 <li class="has-sub"><a href="service-list.html" title="Service List">Service List</a>
                                     <ul>
@@ -208,27 +208,28 @@
                 <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
                     <div class="team-block">
                         <!-- team block start-->
-                        <div class="team-img"><img src="{% static 'ap1/mages/team-3.jpg' %}"></div>
+                        <div class="team-img"><img src="{% static 'ap1/images/team-2.jpg' %}"></div>
                         <div class="team-content">
-                            <h2 class="team-title">Dr.Donna Handy</h2>
-                            <div class="team-meta"><span class="team-designation">Consultant Physician</span></div>
-                        </div>
-                    </div>
-                    <!-- team block end -->
-                </div>
-                <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
-                    <div class="team-block">
-                        <!-- team block start-->
-                        <div class="team-img"><img src="{% static 'ap1/images/team-4.jpg' %}"></div>
-                        <div class="team-content">
-                            <h2 class="team-title">Dr.Terry Cruz</h2>
+                            <h2 class="team-title">Dr.Ray Wilford</h2>
                             <div class="team-meta"><span class="team-designation">Physician</span></div>
                         </div>
                     </div>
-                    <!-- team block end -->
                 </div>
+                <!-- team block end -->
+            </div>
+            <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
+                <div class="team-block">
+                    <!-- team block start-->
+                    <div class="team-img"><img src="{% static 'ap1/images/team-4.jpg' %}"></div>
+                    <div class="team-content">
+                        <h2 class="team-title">Dr.Terry Cruz</h2>
+                        <div class="team-meta"><span class="team-designation">Physician</span></div>
+                    </div>
+                </div>
+                <!-- team block end -->
             </div>
         </div>
+    </div>
     </div>
     <div class="space-medium bg-default">
         <div class="container">
