@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<article id="contact" class="panel">
+    <header>
+        <h2>Contact Us</h2>
+    </header>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    {{ form.name }}
+                </div>
+                <div class="col-6 col-12-medium">
+                    {{ form.email }}
+                </div>
+                <div class="col-12">
+                    <input type="text" name="subject" placeholder="Subject" />
+                </div>
+                <div class="col-12">
+                    {{form.content}}
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="Send Message" />
+                </div>
+            </div>
+        </div>
+    </form>
+</article>
+
+</div>
+{% endblock %}
