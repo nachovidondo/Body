@@ -27,6 +27,63 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<div class="header-top">
+    <!-- header-top-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <span class="text-block time-block">  
+                            <span class="time-text">Mon to Sat: <strong>9am - 8pm</strong> - Sunday: <strong>Closed</strong></span>
+                </span>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8  col-xs-12">
+                <div class="top-text">
+                    <span class="text-block call-block"> 
+                           <span class="call-no">+45 91775076</span>
+                    </span>
+                    <span class="text-block mail-block hidden-xs hidden-sm">  
+                            <span class="mail-text">bodyworkz90@gmail.com</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <a href="#"><img src="{% static 'ap1/images/logo1.png' %}" alt=""></a>
+            </div>
+            <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
+                <div class="navigation">
+                    <div id="navigation">
+                        <ul>
+                            <li class="active"><a href="{% url 'index' %}" title="Home">Home</a></li>
+
+                            <li class="has-sub"><a href="service-list.html" title="Service List">Service List</a>
+                                <ul>
+                                    <li><a href="service-list.html" title="Service List">Service List</a></li>
+                                    <li><a href="service-detail.html" title="Service Detail">Service Detail</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub"><a href="blog-default.html" title="">News</a>
+                                <ul>
+                                    <li><a href="blog-default.html" title="Blog">Blog Default</a></li>
+                                    <li><a href="blog-single.html" title="Blog Single">Blog Single</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" title="Features">Features</a></li>
+                            <li><a href="{% url 'contacto' %}" title="Contact Us">Contact</a> </li>
+                            <li><a href="{% url 'our_therapist' %}" title="Styleguide">Our Therapist</a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 {%block content %} {% endblock %}
 
 <div class="footer">
@@ -77,13 +134,11 @@
             </div>
             <div class="col-lg-4 col-md-2 col-sm-2 col-xs-12">
                 <div class="footer-widget footer-social">
-                    <h2 class="widget-title">Clinic Address</h2>
+                    <h2 class="widget-title">Clinic </h2>
                     <ul class="listnone contact">
-                        <li><i class="fa fa-map-marker"></i> 4958 Norman Street Los Angeles, CA 90042
-                        </li>
-                        <li><i class="fa fa-phone"></i> +00 (800) 123-4567</li>
-                        <li><i class="fa fa-fax"></i> +00 (123) 456 7890</li>
-                        <li><i class="fa fa-envelope-o"></i> info@gastrology.com</li>
+
+                        <li><i class="fa fa-phone"></i> +45 91775076</li>
+                        <li><i class="fa fa-envelope-o"></i> bodyworkz90@gmail.com</li>
                     </ul>
                 </div>
             </div>

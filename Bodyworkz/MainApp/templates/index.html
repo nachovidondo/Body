@@ -1,63 +1,6 @@
  {% extends "base.html" %} {% block content %} {% load static %}
 
 <body>
-    <div class="header-top">
-        <!-- header-top-->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <span class="text-block time-block">  
-                                <span class="time-text">Mon to Sat: <strong>9am - 8pm</strong> - Sunday: <strong>Closed</strong></span>
-                    </span>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8  col-xs-12">
-                    <div class="top-text">
-                        <span class="text-block call-block"> 
-                               <span class="call-no">+45 91775076</span>
-                        </span>
-                        <span class="text-block mail-block hidden-xs hidden-sm">  
-                                <span class="mail-text">bodyworkz90@gmail.com</span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <a href="#"><img src="{% static 'ap1/images/logo1.png' %}" alt=""></a>
-                </div>
-                <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
-                    <div class="navigation">
-                        <div id="navigation">
-                            <ul>
-                                <li class="active"><a href="{% url 'index' %}" title="Home">Home</a></li>
-
-                                <li class="has-sub"><a href="service-list.html" title="Service List">Service List</a>
-                                    <ul>
-                                        <li><a href="service-list.html" title="Service List">Service List</a></li>
-                                        <li><a href="service-detail.html" title="Service Detail">Service Detail</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-sub"><a href="blog-default.html" title="">News</a>
-                                    <ul>
-                                        <li><a href="blog-default.html" title="Blog">Blog Default</a></li>
-                                        <li><a href="blog-single.html" title="Blog Single">Blog Single</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" title="Features">Features</a></li>
-                                <li><a href="{% url 'contacto' %}" title="Contact Us">Contact</a> </li>
-                                <li><a href="styleguide.html" title="Styleguide">styleguide</a> </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="hero-section">
         <div class="container">
             <div class="row">
@@ -84,74 +27,27 @@
                 </div>
             </div>
             <div class="row">
+                {% for terapia in therapy %}
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="service-block">
                         <!-- service block -->
                         <div class="service-img mb20">
                             <!-- service img -->
-                            <a href="#"><img src="{% static 'ap1/images/service-1.jpg' %}" alt="" class="img-responsive"></a>
+                            <a href="#">
+                                <img src="{{terapia.image.url}}" alt="" class="img-responsive" width="260" height="230"></a>
                         </div>
                         <!-- service img -->
                         <div class="service-content">
                             <!-- service content -->
-                            <h2><a href="#" class="title">Physiotherapy</a></h2>
-                            <p>Write your service content here and describe more in readmore btn. Ibus sapien non rhoncus congue.</p>
+                            <h2><a href="#" class="title">{{terapia.name}}</a></h2>
+                            <p>{{terapia.description}}</p>
                         </div>
                         <!-- service content -->
                     </div>
                     <!-- /.service block -->
+                    {% endfor %}
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <!-- service block -->
-                        <div class="service-img mb20">
-                            <!-- service img -->
-                            <a href="#"><img src="{% static 'ap1/images/service-2.jpg' %}" alt="" class="img-responsive"></a>
-                        </div>
-                        <!-- service img -->
-                        <div class="service-content">
-                            <!-- service content -->
-                            <h2><a href="#" class="title">Sport Injuries</a></h2>
-                            <p>Write your service content here and describe more in readmor ictum arcu ac ldunt nunc ullamcorper. </p>
-                        </div>
-                        <!-- service content -->
-                    </div>
-                    <!-- /.service block -->
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <!-- service block -->
-                        <div class="service-img mb20">
-                            <!-- service img -->
-                            <a href="#"><img src="{% static 'ap1/images/service-3.jpg' %}" alt="" class="img-responsive"></a>
-                        </div>
-                        <!-- service img -->
-                        <div class="service-content">
-                            <!-- service content -->
-                            <h2><a href="#" class="title">Rehabilitation</a></h2>
-                            <p>Write your service content here and describe more in readmore ons velit, a malesuada urna sodales eu.</p>
-                        </div>
-                        <!-- service content -->
-                    </div>
-                    <!-- /.service block -->
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-block">
-                        <!-- service block -->
-                        <div class="service-img mb20">
-                            <!-- service img -->
-                            <a href="#"><img src="{% static 'ap1/images/service-4.jpg' %}" alt="" class="img-responsive"></a>
-                        </div>
-                        <!-- service img -->
-                        <div class="service-content">
-                            <!-- service content -->
-                            <h2><a href="#" class="title">Acupuncture</a></h2>
-                            <p>Write your service content here and describe more in readmore ongue ia malesuada urna sodales veliteu.</p>
-                        </div>
-                        <!-- service content -->
-                    </div>
-                    <!-- /.service block -->
-                </div>
+
             </div>
         </div>
     </div>
@@ -169,108 +65,10 @@
             </div>
         </div>
     </div>
-    <!-- /.call to action -->
-    <div class="space-medium">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                    <div class="section-title mb60 text-center">
-                        <!-- section title start-->
-                        <h1>Meet Our Physiotherapist</h1>
-                        <p>Pellentesque laoreet sem nisi eget malesuada sem aliquet sit amet ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                    </div>
-                    <!-- /.section title end-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
-                    <div class="team-block">
-                        <!-- team block start-->
-                        <div class="team-img"><img src="{% static 'ap1/images/team-1.jpg' %}"></div>
-                        <div class="team-content">
-                            <h2 class="team-title">Dr.Sylvia Rosas</h2>
-                            <div class="team-meta"><span class="team-designation">Consultant Physician</span></div>
-                        </div>
-                    </div>
-                    <!-- team block end -->
-                </div>
-                <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
-                    <div class="team-block">
-                        <!-- team block start-->
-                        <div class="team-img"><img src="{% static 'ap1/images/team-2.jpg' %}"></div>
-                        <div class="team-content">
-                            <h2 class="team-title">Dr.Ray Wilford</h2>
-                            <div class="team-meta"><span class="team-designation">Physician</span></div>
-                        </div>
-                    </div>
-                    <!-- team block end -->
-                </div>
-                <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
-                    <div class="team-block">
-                        <!-- team block start-->
-                        <div class="team-img"><img src="{% static 'ap1/images/team-2.jpg' %}"></div>
-                        <div class="team-content">
-                            <h2 class="team-title">Dr.Ray Wilford</h2>
-                            <div class="team-meta"><span class="team-designation">Physician</span></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- team block end -->
-            </div>
-            <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
-                <div class="team-block">
-                    <!-- team block start-->
-                    <div class="team-img"><img src="{% static 'ap1/images/team-4.jpg' %}"></div>
-                    <div class="team-content">
-                        <h2 class="team-title">Dr.Terry Cruz</h2>
-                        <div class="team-meta"><span class="team-designation">Physician</span></div>
-                    </div>
-                </div>
-                <!-- team block end -->
-            </div>
-        </div>
+
     </div>
     </div>
-    <div class="space-medium bg-default">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
-                    <div class="section-title mb60 text-center">
-                        <!-- section title start-->
-                        <h1>Our Patient’s Review</h1>
-                    </div>
-                    <!-- /.section title start-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <!-- testimonial block -->
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">“Helped with my broken knee and a nasty attack of sciatica Wouldn't go anywhere Thanks to the wonderful staff! vitae odio non luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus in tempor.”</p>
-                        </div>
-                        <div class="testimonial-info">
-                            <h4 class="testimonial-name">Rose Jacq</h4>
-                            <span class="testimonial-meta">34 Year</span>
-                        </div>
-                    </div>
-                    <!--/. testimonial block -->
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="testimonial-block">
-                        <!-- testimonial block -->
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">“Lorem ipsum dolor sitamet con sectetur adipiscing elitam neclis usce dignissim ex ac fermentum volutpat cras euismod natoque penatibus et magnis dis parturient montes nascetur ridiculus mus in tempor.”</p>
-                        </div>
-                        <div class="testimonial-info">
-                            <h4 class="testimonial-name">Rose Jacq</h4>
-                            <span class="testimonial-meta">34 Year</span>
-                        </div>
-                    </div>
-                    <!--/. testimonial block -->
-                </div>
-            </div>
-        </div>
+    </div>
     </div>
     <div class="space-medium">
         <div class="container">

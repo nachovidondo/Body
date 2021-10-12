@@ -1,3 +1,4 @@
+from . models import Therapist, Therapy
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView
@@ -8,8 +9,9 @@ from django.core.mail import EmailMessage
 
 #Index
 def index(request):
+    therapy = Therapy.objects.all()
 
-    return render (request,'index.html')
+    return render (request,'index.html', {'therapy': therapy})
 
 #Contact
 
@@ -41,3 +43,8 @@ def contacto(request):
 #Automatic message after contact us
 def automatic(request):
     return render (request, 'automatic.html') 
+
+#Our Therapist
+def our_therapist(request):
+    therapist = Therapist.objects.all()
+    return render(request,'our_therapist.html',{'therapist':therapist})

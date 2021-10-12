@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+<div class="row">
+    {% for terapia in therapy %}
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="service-block">
+            <!-- service block -->
+            <div class="service-img mb20">
+                <!-- service img -->
+                <a href="#">
+                    <img src="{{terapia.image.url}}" alt="" class="img-responsive" width="260" height="230"></a>
+            </div>
+            <!-- service img -->
+            <div class="service-content">
+                <!-- service content -->
+                <h2><a href="#" class="title">{{terapia.name}}</a></h2>
+                <p>{{terapia.description}}</p>
+            </div>
+            <!-- service content -->
+        </div>
+        <!-- /.service block -->
+        {% endfor %}
+    </div>
