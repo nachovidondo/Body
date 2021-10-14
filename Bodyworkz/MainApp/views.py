@@ -10,8 +10,10 @@ from django.core.mail import EmailMessage
 #Index
 def index(request):
     therapy = Therapy.objects.all()
+    therapist = Therapist.objects.all()
+    reviews = Review.objects.all()
 
-    return render (request,'index.html', {'therapy': therapy})
+    return render (request,'index.html', {'therapy': therapy, 'therapist': therapist, 'reviews':reviews})
 
 #Contact
 
