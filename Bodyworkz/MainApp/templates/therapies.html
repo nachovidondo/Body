@@ -1,13 +1,15 @@
 {% extends "base.html" %} {% block content %} {% load static %}
 <div class="header">
-
-
     <div class="row ">
-        {% for terapia in therapies %}
+
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+
+
             <div class="service-block ">
+
                 <!-- service block -->
                 <div class="service-img mb20 ">
+                    {% for terapia in therapies %}
                     <!-- service img -->
                     <a href="# ">
                         <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
@@ -17,16 +19,19 @@
                     <!-- service content -->
                     <h2><a href="# " class="title ">{{terapia.name}}</a></h2>
                     <p>{{terapia.description}}</p>
+                    {% endfor %}
+
                 </div>
-                <!-- service content -->
+
             </div>
-            <!-- /.service block -->
+
+
 
         </div>
-        {% endfor %}
+
     </div>
 </div>
-</div>
+
 
 
 {% endblock %}

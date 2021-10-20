@@ -15,6 +15,12 @@
     <!-- Bootstrap -->
     <link href="{% static 'ap1/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Google Fonts -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/v4-shims.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/fontawesome.js">
+    </script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{% static 'ap1/css/font-awesome.min.css' %}" rel="stylesheet">
@@ -54,20 +60,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <a href="#"><img src="{% static 'ap1/images/logo1.png' %}" alt=""></a>
+                <a href="{% url 'index' %}"><img src="{% static 'ap1/images/logo1.png' %}" alt=""></a>
             </div>
             <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
                 <div class="navigation">
                     <div id="navigation">
                         <ul>
-                            <li class="active"><a href="{% url 'index' %}" title="Home">Home</a></li>
+                            <li class="active"><a href="{% url 'index' %}" title="Home">HOME</a></li>
 
-                            <li class="active"><a href="{% url 'therapies'%}" title="Therapies">Therapies</a></li>
-                            <li><a href="{% url 'reviews' %}" title="Styleguide">Reviews</a> </li>
+                            <li class="active"><a href="{% url 'therapies'%}" title="Therapies">SERVICES</a></li>
+                            <li><a href="{% url 'reviews' %}" title="Styleguide">TESTIMONIALS</a> </li>
 
-                            <li><a href="{% url 'our_therapist' %}" title="Styleguide">Our Therapist</a> </li>
+                            <li><a href="{% url 'our_therapist' %}" title="Styleguide">MEET OUR THERAPIST</a> </li>
 
-                            <li><a href="{% url 'contacto' %}" title="Contact Us">Contact</a> </li>
+                            <li><a href="{% url 'contacto' %}" title="Contact Us">CONTACT</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -84,26 +90,23 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="footer-widget widget-newsletter">
                     <h2 class="widget-title">Newsletters</h2>
-                    <p>Enter your email address to receive new patient information and other useful information right to your inbox.</p>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Address">
-                        <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Subscribe</button>
-                       </span>
-                    </div>
-                    <!-- /input-group -->
+
+
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12">
                 <div class="footer-widget">
                     <h2 class="widget-title">Therapies</h2>
                     <ul class="listnone">
-                        <li><a href="#">Massage Therapy  </a></li>
-                        <li><a href="#">Physiotherapy</a></li>
-                        <li><a href="#">Geriatric</a></li>
-                        <li><a href="#">Rehabilition</a></li>
-                        <li><a href="#">Diagnostics</a></li>
-                        <li><a href="#">Acunpuncture</a></li>
+                        <li><a href="{% url 'therapies' %}">Massage Therapy  </a></li>
+
+                        <li><a href="{% url 'therapies' %}">Sport Massage</a></li>
+                        <li><a href="{% url 'therapies' %}">Relaxation Treatment</a></li>
+                        <li><a href="{% url 'therapies' %}">Manual Therapy</a></li>
+                        <li><a href="{% url 'therapies' %}">Diagnostics</a></li>
+                        <li>
+                            <a href="{% url 'therapies' %}">Shiatsu Zen</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,21 +115,17 @@
                     <h2 class="widget-title">Social Feed</h2>
                     <ul class="listnone">
                         <li>
-                            <a href="#"> <i class="fa fa-facebook"></i> Facebook </a>
+                            <a href="#"> <i class="fa fa-instagram"></i> Instagram</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i> Google Plus</a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i> Linked In</a></li>
-                        <li>
-                            <a href="#"> <i class="fa fa-youtube"></i>Youtube</a>
-                        </li>
+
+
 
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-2 col-sm-2 col-xs-12">
                 <div class="footer-widget footer-social">
-                    <h2 class="widget-title">Clinic </h2>
+                    <h2 class="widget-title">Contact </h2>
                     <ul class="listnone contact">
 
                         <li><i class="fa fa-phone"></i> +45 91775076</li>
@@ -146,7 +145,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="copyright-content">
-                    Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.com">BootstrapThemes</a>
+                    Created by <i class="fa fa-love"></i>Ignacio Vidondo
                 </div>
             </div>
         </div>
