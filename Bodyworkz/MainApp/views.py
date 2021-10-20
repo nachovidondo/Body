@@ -28,7 +28,7 @@ def contacto(request):
             mail = EmailMessage(
                 "Bodyworkz Massage : Nuevo Mensaje de Contacto ",
                 "De {} {}\n\nEscribio:\n\n {}".format(name ,email,content),
-                "bodyworkz.com", ["ignaciovidondo@hotmail.com"],
+                "bodyworkz.com", ["nachovidondo@gmail.com"],
                 reply_to = [email]
                 )
             try:

@@ -8,19 +8,17 @@
         {% csrf_token %}
         <div>
             <div class="row">
-                <div class="col-6 col-12-medium">
+                <div class="col-md-9">
                     {{ form.name }}
                 </div>
-                <div class="col-6 col-12-medium">
+                <div class="col-md-9">
                     {{ form.email }}
                 </div>
-                <div class="col-12">
-                    <input type="text" name="subject" placeholder="Subject" />
-                </div>
-                <div class="col-12">
+
+                <div class="col-md-9">
                     {{form.content}}
                 </div>
-                <div class="col-12">
+                <div class="col-md-9">
                     <input type="submit" value="Send Message" />
                 </div>
             </div>

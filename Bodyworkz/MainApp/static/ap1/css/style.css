@@ -1,68 +1,5 @@
 @charset "UTF-8";
-
-/* CSS Document */
-
-
-/*------------------------------------------------------------------
-
-Template Name:      Free Physiotherapy Website Template Download
-Version:            1.0.0
-Created Date:       30/03/2017 
-Author:             Jitu Chauhan 
-
-------------------------------------------------------------------
-[CSS Table of contents]
-
-1.  Body / Typography 
-2.  Form Elements
-3.  Buttons
-4.  General / Elements
-        4.1 Section space
-        4.2 Margin space
-        4.3 Padding space
-        4.4 Background color
-        4.5 Features
-        4.7 Call to actions
-        4.8 Img hover effect
-        4.9 Icon
-        -----------------------
-5. Header / Navigations
-        5.1 Header Regular
-        5.2 Header Transparent
-        5.3 Navigation Regular
-        5.4 Page Header
-
-        -----------------------
-6. Slider
-        6.1 Slider
-        -----------------------
-7. Content
-8. Footers
-9. Pages
-    9.1  Service
-    9.2  Service Single / sidebar with sidenav
-    9.3  Testimonial
-    9.4  Contact us
-    9.5  Styleguide
-    ------------------------------------
-10.Blog
-    10.1 Blog Default
-    10.2 Blog Single
-    ------------------------------------
-11.Sidebar
-    11.1 Widget
-    ------------------------------------
-
-13. Media Queries
-
-------------------------------------------------------------------*/
-
-
-/*-----------------------------------
-    1. Body / Typography 
------------------------------------*/
-
-body {
+-*/ body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-size: 15px;
@@ -142,7 +79,7 @@ ul li,
 ol li {}
 
 a {
-    color: #319969;
+    color: #375a5f;
     text-decoration: none;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -152,7 +89,7 @@ a {
 a:focus,
 a:hover {
     text-decoration: none;
-    color: #019852;
+    color: #985c01;
 }
 
 strong {}
@@ -190,7 +127,7 @@ strong {}
 h3 small {
     font-weight: 400;
     line-height: 1;
-    color: #319969;
+    color: #375a5f;
     font-size: 14px;
 }
 
@@ -213,7 +150,7 @@ blockquote {
     line-height: 32px;
     color: #3c3c3c;
     font-style: italic;
-    border-left: 5px solid #319969;
+    border-left: 5px solid #375a5f;
 }
 
 
@@ -384,20 +321,20 @@ label {}
 
 .btn-default {
     color: #fff;
-    background-color: #319969;
+    background-color: #375a5f;
 }
 
 .btn-default:hover {
     color: #fff;
-    background-color: #019852;
-    border-color: #019852;
+    background-color: #985c01;
+    border-color: #985c01;
 }
 
 .btn-default.focus,
 .btn-default:focus {
     color: #fff;
-    background-color: #019852;
-    border-color: #019852;
+    background-color: #985c01;
+    border-color: #985c01;
 }
 
 .btn-primary {
@@ -414,21 +351,21 @@ label {}
 .btn-primary:focus {}
 
 .btn-white {
-    color: #319969;
+    color: #375a5f;
     background-color: #fff;
     border: 1px solid #fff;
 }
 
 .btn-white:hover {
-    background-color: #019852;
-    border-color: #019852;
+    background-color: #985c01;
+    border-color: #985c01;
     color: #fff;
 }
 
 .btn-white.focus,
 .btn-white:focus {
-    background-color: #019852;
-    border-color: #019852;
+    background-color: #985c01;
+    border-color: #985c01;
     color: #fff;
 }
 
@@ -443,10 +380,10 @@ label {}
 }
 
 .btn-link:hover {
-    color: #319969;
+    color: #375a5f;
     font-weight: 700;
     text-decoration: none;
-    border-bottom: 1px solid #319969;
+    border-bottom: 1px solid #375a5f;
 }
 
 .btn-lg {
@@ -748,11 +685,11 @@ label {}
 }
 
 .bg-primary {
-    background-color: #319969;
+    background-color: #375a5f;
 }
 
 .bg-default {
-    background-color: #effef7;
+    background-color: #9e9c79;
 }
 
 .bg-white {
@@ -936,7 +873,7 @@ label {}
 }
 
 .imghover:hover::after {
-    color: #FFFFFF;
+    color: #9e9c79;
 }
 
 [class^='imghvr-'],
@@ -975,7 +912,7 @@ label {}
 }
 
 .icon-default {
-    color: #319969;
+    color: #375a5f;
 }
 
 .icon-primary {
@@ -1011,7 +948,7 @@ label {}
 }
 
 .header-top {
-    background-color: #319969;
+    background-color: #375a5f;
     font-size: 15px;
     padding-top: 11px;
     padding-bottom: 11px;
@@ -1156,7 +1093,7 @@ label {}
 
 #navigation>ul>li:hover>a {
     color: #ffffff;
-    background-color: #319969;
+    background-color: #375a5f;
 }
 
 #navigation>ul>li.has-sub>a {
@@ -1241,7 +1178,7 @@ label {}
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    background: #319969;
+    background: #375a5f;
     text-transform: uppercase;
     border-bottom: 2px solid #069c57;
 }
@@ -1253,8 +1190,8 @@ label {}
 
 #navigation ul ul li:hover>a,
 #navigation ul ul li a:hover {
-    color: #ffffff;
-    background-color: #319969;
+    color: #9e9c79;
+    background-color: #375a5f;
 }
 
 #navigation ul ul li.has-sub>a:after {
@@ -1583,7 +1520,7 @@ label {}
 }
 
 .footer-widget li a:hover {
-    color: #319969;
+    color: #375a5f;
 }
 
 .footer-link {}
@@ -1600,7 +1537,7 @@ label {}
 }
 
 .footer-social ul li a:hover i {
-    color: #319969;
+    color: #375a5f;
 }
 
 .footer .contact li {
@@ -1769,13 +1706,13 @@ label {}
 
 .sidenav li a:hover {
     color: #fff;
-    background-color: #319969;
+    background-color: #375a5f;
 }
 
 .sidenav li a.active,
 .sidenav ul li a.active .sidenav ul li i {
     color: #fff;
-    background-color: #319969;
+    background-color: #375a5f;
 }
 
 .sidenav li a:focus {
@@ -1816,7 +1753,7 @@ label {}
     font-size: 100px;
     font-family: 'Libre Baskerville', serif;
     font-style: normal;
-    color: #319969;
+    color: #375a5f;
     line-height: 0px;
     top: 52px;
 }
@@ -1839,7 +1776,7 @@ label {}
     font-size: 21px;
     font-style: italic;
     line-height: 32px;
-    color: #333333;
+    color: #9e9c79;
 }
 
 .testimonial-name {
@@ -1869,7 +1806,7 @@ label {}
 }
 
 .contact-block ul li i {
-    color: #319969;
+    color: #375a5f;
     float: left;
     padding: 0px;
 }
@@ -2152,8 +2089,8 @@ address {
 .st-pagination .pagination>li>a.active {
     z-index: 2;
     color: #fff;
-    background-color: #319969;
-    border: 1px solid #319969;
+    background-color: #375a5f;
+    border: 1px solid #375a5f;
 }
 
 .st-pagination .pagination>li:first-child>a,
@@ -2176,7 +2113,7 @@ address {
     z-index: 3;
     color: #fff;
     cursor: default;
-    background-color: #319969;
+    background-color: #375a5f;
     border: none;
 }
 
@@ -2213,11 +2150,11 @@ address {
 }
 
 .widget ul li a.active {
-    color: #319969;
+    color: #375a5f;
 }
 
 .widget ul li a:hover {
-    color: #319969;
+    color: #375a5f;
 }
 
 .widget-search {}
@@ -2225,8 +2162,8 @@ address {
 .widget-search .input-group-addon {
     color: #fff;
     text-align: center;
-    background-color: #319969;
-    border: 1px solid #319969;
+    background-color: #375a5f;
+    border: 1px solid #375a5f;
     border-left: transparent;
 }
 
@@ -2274,9 +2211,9 @@ ul.widget-recent-post {}
 }
 
 .widget-tags a:hover {
-    background-color: #319969;
+    background-color: #375a5f;
     color: #fff;
-    /* border: 1px solid #319969;*/
+    /* border: 1px solid #375a5f;*/
 }
 
 .widget-text {}
@@ -2288,7 +2225,7 @@ ul.widget-recent-post {}
 .social-circle a {
     height: 33px;
     width: 33px;
-    background-color: #319969;
+    background-color: #375a5f;
     color: #fff;
     border-radius: 100%;
     padding: 5px;
@@ -2298,11 +2235,11 @@ ul.widget-recent-post {}
 }
 
 .social-circle a:hover {
-    background-color: #019852;
+    background-color: #985c01;
 }
 
 .widget-call-to-action {
-    background-color: #319969;
+    background-color: #375a5f;
 }
 
 .widget-call-to-action .widget-title {
@@ -2336,7 +2273,7 @@ ul.widget-recent-post {}
 .team-meta {
     text-transform: uppercase;
     font-size: 12px;
-    color: #319969;
+    color: #375a5f;
     font-weight: 500;
     letter-spacing: 1px;
 }
@@ -2491,7 +2428,7 @@ ul.widget-recent-post {}
 .box-info {}
 
 .box-default-color {
-    background-color: #319969;
+    background-color: #375a5f;
     height: 160px;
     width: 160px;
 }
@@ -2515,7 +2452,7 @@ ul.widget-recent-post {}
 }
 
 .box-bg-color {
-    background-color: #effef7;
+    background-color: #9e9c79;
     height: 160px;
     width: 160px;
 }
