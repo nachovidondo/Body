@@ -43,4 +43,7 @@ class Review(models.Model):
     def __str__(self):
         return self.name
     
-    
+
+
+class Offer(models.Model):
+    expiration_date = models.DateField(null=True)

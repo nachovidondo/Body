@@ -1,10 +1,11 @@
-from . models import Therapist, Therapy, Review
+from . models import Therapist, Therapy, Review, Offer
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.shortcuts import render,reverse , redirect
-from .forms  import Contactform
+from .forms  import Contactform, OfferForm
 from django.core.mail import EmailMessage
+from django.views.generic.edit import CreateView
 
 
 #Index
@@ -61,3 +62,8 @@ def therapies(request):
 def review(request):
     reviews= Review.objects.all()
     return render(request,'review.html',{'reviews':reviews})
+
+class OfferForm(CreateView):
+    model = Offer
+    form_class = OfferForm
+    

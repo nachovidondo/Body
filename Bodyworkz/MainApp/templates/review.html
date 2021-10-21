@@ -20,10 +20,14 @@
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             {% for review in reviews %}
+
+
                             <div class="item {% if forloop.first %} active {% endif %} ">
+
                                 <h2>{{review.description}}</h2>
                                 <h5>{{review.name}}</h5>
                             </div>
+
                             {% endfor %}
 
 
@@ -33,8 +37,14 @@
 
                 </div>
 
+
             </div>
 
         </div>
+
     </div>
-    {% endblock %}
+
+</div>
+</div>
+</div>
+{% endblock %}

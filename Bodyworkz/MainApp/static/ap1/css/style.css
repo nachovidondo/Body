@@ -18,7 +18,7 @@ h6 {
     margin: 0;
     padding: 0;
     margin-bottom: 10px;
-    color: #3c3c3c;
+    color: #375a5f;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
 }
@@ -101,7 +101,7 @@ strong {}
 
 .lead {
     font-size: 21px;
-    color: #3c3c3c;
+    color: #ffffff;
     font-weight: 400;
 }
 
@@ -148,7 +148,7 @@ blockquote {
     margin: 0px;
     font-size: 21px;
     line-height: 32px;
-    color: #3c3c3c;
+    color: #ffffff;
     font-style: italic;
     border-left: 5px solid #375a5f;
 }
@@ -422,6 +422,7 @@ label {}
 .space-medium {
     padding-top: 100px;
     padding-bottom: 100px;
+    color: #375a5f
 }
 
 .space-large {
@@ -689,7 +690,7 @@ label {}
 }
 
 .bg-default {
-    background-color: #9e9c79;
+    background-color: #375a5f;
 }
 
 .bg-white {
@@ -703,7 +704,7 @@ label {}
 .section-title {}
 
 .title {
-    color: #3c3c3c;
+    color: #ffffff;
 }
 
 .text-white {
@@ -873,7 +874,7 @@ label {}
 }
 
 .imghover:hover::after {
-    color: #9e9c79;
+    color: #375a5f;
 }
 
 [class^='imghvr-'],
@@ -1190,7 +1191,7 @@ label {}
 
 #navigation ul ul li:hover>a,
 #navigation ul ul li a:hover {
-    color: #9e9c79;
+    color: #375a5f;
     background-color: #375a5f;
 }
 
@@ -1776,7 +1777,7 @@ label {}
     font-size: 21px;
     font-style: italic;
     line-height: 32px;
-    color: #9e9c79;
+    color: #375a5f;
 }
 
 .testimonial-name {
@@ -2070,7 +2071,7 @@ address {
     float: left;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #3c3c3c;
+    color: #ffffff;
     text-decoration: none;
     font-size: 12px;
     background-color: #fff;
@@ -2452,7 +2453,7 @@ ul.widget-recent-post {}
 }
 
 .box-bg-color {
-    background-color: #9e9c79;
+    background-color: #375a5f;
     height: 160px;
     width: 160px;
 }

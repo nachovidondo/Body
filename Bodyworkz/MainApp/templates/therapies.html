@@ -1,37 +1,43 @@
 {% extends "base.html" %} {% block content %} {% load static %}
-<div class="header">
-    <div class="row ">
+<div class="space-medium ">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-md-offset-2 col-md-8 ">
+                <div class="mb60 text-center section-title ">
+                    <!-- section title start-->
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-
-
-            <div class="service-block ">
-
-                <!-- service block -->
-                <div class="service-img mb20 ">
-                    {% for terapia in therapies %}
-                    <!-- service img -->
-                    <a href="# ">
-                        <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
+                    <h1>Here you can get the information about our services</h1>
+                    <p>Pellentesque laoreet sem nisi, eget malesuada sem aliquet sit ame ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                 </div>
-                <!-- service img -->
-                <div class="service-content ">
-                    <!-- service content -->
-                    <h2><a href="# " class="title ">{{terapia.name}}</a></h2>
-                    <p>{{terapia.description}}</p>
-                    {% endfor %}
-
-                </div>
-
+                <!-- /.section title start-->
             </div>
-
-
-
         </div>
 
+        <div class="row ">
+            {% for terapia in therapies %}
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+                <div class="service-block ">
+                    <!-- service block -->
+                    <div class="service-img mb20 ">
+                        <!-- service img -->
+                        <a href="# ">
+                            <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
+                    </div>
+                    <!-- service img -->
+                    <div class="service-content ">
+                        <!-- service content -->
+                        <h2><a href="# " class="title ">{{terapia.name}}</a></h2>
+                        <p>{{terapia.description}}</p>
+                    </div>
+                    <!-- service content -->
+                </div>
+                <!-- /.service block -->
+
+            </div>
+            {% endfor %}
+
+        </div>
     </div>
 </div>
-
-
 
 {% endblock %}
