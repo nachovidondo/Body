@@ -2,7 +2,7 @@ from django import forms
 from django.forms import DateTimeInput
 from django.forms import ModelForm
 
-from .models import Offer
+from .models import Appointment
 
 
 from django import forms
@@ -19,20 +19,27 @@ class Contactform(forms.Form):
     content = forms.CharField(required= True, widget=forms.Textarea(
         attrs={"rows":5, "cols":20, 'class':'form-control','placeholder':'Message'}
     ))
+    
 
-
-
-from django.forms import ModelForm
-from .models import Offer
- 
-class DateInput(forms.DateInput):
+class DateTimeInput(forms.DateTimeInput):
     input_type = 'date'
- 
-class OfferForm(forms.ModelForm):
+    
+class DateTimeForm(forms.Form):
+    date= forms.DateField(widget= DateTimeInput)
+     
+
+class AppointmentForm(forms.ModelForm):
+
+    
     class Meta:
-        model = Offer
+        model = Appointment
+        widgets = {'date': DateTimeInput()}
         fields = '__all__'
-        widgets = {
-            'expiration_date': DateInput(),
-            'time' : forms.TimeField(widget=forms.TimeInput(format='%H:%M'))
-        }
+""""
+        def __init__(self, *args, **kwargs):
+            fields = (
+            forms.DateTimeField(),
+            forms.DateTimeField())
+            super().__init__(fields, *args, **kwargs)
+            """
+            

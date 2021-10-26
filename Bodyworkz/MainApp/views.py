@@ -1,9 +1,9 @@
-from . models import Therapist, Therapy, Review, Offer
+from . models import Therapist, Therapy, Review, Appointment
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.shortcuts import render,reverse , redirect
-from .forms  import Contactform, OfferForm
+from .forms  import Contactform, AppointmentForm
 from django.core.mail import EmailMessage
 from django.views.generic.edit import CreateView
 
@@ -64,6 +64,6 @@ def review(request):
     return render(request,'review.html',{'reviews':reviews})
 
 class OfferForm(CreateView):
-    model = Offer
-    form_class = OfferForm
+    model = Appointment
+    form_class = AppointmentForm
     

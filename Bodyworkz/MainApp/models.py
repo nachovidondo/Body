@@ -45,5 +45,38 @@ class Review(models.Model):
     
 
 
-class Offer(models.Model):
-    expiration_date = models.DateField(null=True)
+class Appointment(models.Model):
+        # iterable
+        TIME_CHOICES =(
+                ("8:00", "8:00"),
+                ("9:00", "9:00"),
+                ("10:00", "10:00"),
+                ("11:00", "11:00"),
+                ("12:00", "12:00"),
+                ("13:00", "13:00"),
+                ("14:00", "14:00"),
+                ("15:00", "15:00"),
+                ("16:00", "16:00"),
+                ("17:00", "17:00"),
+                ("18:00", "18:00"),
+                ("19:00", "19:00"),
+                ("20:00", "20:00"),
+                
+)
+  
+        name = models.CharField(max_length=255, verbose_name="Name")
+        surname = models.CharField(max_length=255, verbose_name = "Surname")
+        phone_number = models.CharField(max_length=255, verbose_name = "Phone number")
+        email = models.EmailField()
+        date = models.DateTimeField()
+        time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
+        therapy = models.ForeignKey( Therapy, on_delete = models.CASCADE)
+        comments = models.TextField() 
+        
+        class Meta:
+                verbose_name = "Appointment"
+                verbose_name_plural = "Appointments"
+                
+        def __str__(self):
+                return self.name + ' ' + self.surname
+                
