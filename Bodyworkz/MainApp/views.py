@@ -63,7 +63,39 @@ def review(request):
     reviews= Review.objects.all()
     return render(request,'review.html',{'reviews':reviews})
 
-class OfferForm(CreateView):
-    model = Appointment
-    form_class = AppointmentForm
+
     
+#Appointment
+
+def appointment(request):
+    appointment_form = AppointmentForm()
+    if request.method == "POST":  
+        appointment_form = AppointmentForm(data=request.POST)
+        if appointment_form.is_valid(): 
+            name= request.POST.get('name')
+            surname = request.POST.get('surname')
+            email= request.POST.get('email')
+            phone_number = request.POST.get('phone_number')
+            date = request.POST.get('date')
+            time = request.POST.get('time')
+            therapy = request.POST.get('therapy')
+            comments = request.POST.get('comments')
+            
+        
+            
+            mail = EmailMessage(
+                "Bodyworkz Massage : NEW APPOINTMENT ",
+                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} {}\n\n  email  {}\n \n phone number {} \n \n therapy {} \n \n comments   {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n BodyWorkz".format(name ,surname,date,time,email,phone_number,therapy,comments),
+                "bodyworkz.com", ["nachovidondo@gmail.com","email"],
+                reply_to = [email]
+                )
+            try:
+                mail.send() #Si esta todo ok redireccionar
+                return redirect(reverse("automatic")+"?ok")
+                 
+                 
+            
+            except:
+                return redirect(reverse("contacto")+"?fail")
+            
+    return render (request, 'appointment_form.html', {'form':appointment_form })

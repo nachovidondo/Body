@@ -46,7 +46,7 @@ class Review(models.Model):
 
 
 class Appointment(models.Model):
-        # iterable
+        # choices_time
         TIME_CHOICES =(
                 ("8:00", "8:00"),
                 ("9:00", "9:00"),
