@@ -79,13 +79,16 @@ def appointment(request):
             date = request.POST.get('date')
             time = request.POST.get('time')
             therapy = request.POST.get('therapy')
+            print()
+            query_therapy = Therapy.objects.get(pk=therapy)
+            terapia= str(query_therapy.name)
             comments = request.POST.get('comments')
             
         
             
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} {}\n\n  email  {}\n \n phone number {} \n \n therapy {} \n \n comments   {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n BodyWorkz".format(name ,surname,date,time,email,phone_number,therapy,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} {}\n\n  email  {}\n \n phone number {} \n \n therapy {} \n \n comments   {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n BodyWorkz".format(name ,surname,date,time,email,phone_number,terapia,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com","email"],
                 reply_to = [email]
                 )

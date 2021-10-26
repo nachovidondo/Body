@@ -28,7 +28,7 @@ class Therapy(models.Model):
             verbose_name_plural="Terapias"
         
     def __str__(self):
-        return self.name
+        return str(self.name)
     
 
 class Review(models.Model):
