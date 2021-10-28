@@ -6,6 +6,7 @@ from django.shortcuts import render,reverse , redirect
 from .forms  import Contactform, AppointmentForm
 from django.core.mail import EmailMessage
 from django.views.generic.edit import CreateView
+from datetime import datetime
 
 
 #Index
@@ -77,18 +78,23 @@ def appointment(request):
             email= request.POST.get('email')
             phone_number = request.POST.get('phone_number')
             date = request.POST.get('date')
+            date_time = datetime.strptime(date,'%Y-%m-%d')
+            date_1= date_time.date()
             time = request.POST.get('time')
             therapy = request.POST.get('therapy')
-            print()
+          
             query_therapy = Therapy.objects.get(pk=therapy)
             terapia= str(query_therapy.name)
+            price = str(query_therapy.price)
+            time = str(query_therapy.duration)
+            
             comments = request.POST.get('comments')
             
         
             
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} {}\n\n  email  {}\n \n phone number {} \n \n therapy {} \n \n comments   {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n BodyWorkz".format(name ,surname,date,time,email,phone_number,terapia,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes \n \n price $ {} Dkk \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time ,price,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com","email"],
                 reply_to = [email]
                 )

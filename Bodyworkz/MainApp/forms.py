@@ -49,7 +49,7 @@ class AppointmentForm(forms.ModelForm):
             print(now)
             return date
         else:
-            raise forms.ValidationError("The date cannot be in the past!")
+            raise forms.ValidationError("The date is not available!")
       
         
     
