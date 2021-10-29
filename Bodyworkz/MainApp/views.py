@@ -70,6 +70,7 @@ def review(request):
 
 def appointment(request):
     appointment_form = AppointmentForm()
+    terapias_view = Therapy.objects.all()
     if request.method == "POST":  
         appointment_form = AppointmentForm(data=request.POST)
         if appointment_form.is_valid(): 
@@ -94,7 +95,7 @@ def appointment(request):
             
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes \n \n price $ {} Dkk \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time ,price,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes \n \n price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time ,price,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com","email"],
                 reply_to = [email]
                 )
@@ -105,6 +106,6 @@ def appointment(request):
                  
             
             except:
-                return redirect(reverse("contacto")+"?fail")
+                return redirect(reverse("home")+"?fail")
             
-    return render (request, 'appointment_form.html', {'form':appointment_form })
+    return render (request, 'appointment_form.html', {'form':appointment_form , 'therapies' : terapias_view})

@@ -1,4 +1,53 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+<div align="center">
+    <h2>Dear client, welcome to online booking.
+    </h2>
+    <h4>CANCELLATION: Remember cancellation must be made no later than 48 hours before the agreed time, otherwise ½ price is paid. Absence full price. Cancellations can be made easily here on online booking. Please contact me on tel. 29 71 72 29 if you need
+        to cancel with less than 48 hours notice.</h4>
+</div>
+<br>
+<div class="table-responsive-sm">
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">Therapy </th>
+                <th scope="col">Duration</th>
+                <th scope="col">Price</th>
+                <th scope="col">Therapist</th>
+
+            </tr>
+        </thead>
+        <tbody>{% for terapia in therapies %}
+            <tr>
+                <td>
+                    {{terapia.name}}
+                </td>
+                <td>
+                    {{terapia.duration}} Minutes
+                </td>
+                <td>
+                    ${{terapia.price}} DKK
+                </td>
+                <td>
+                    {{terapia.therapist}}
+                </td>
+
+                </th>
+
+
+
+
+
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+
+    </table>
+</div>
+
 <form method="post" novalidate>
     {% csrf_token %}
     <div class="form-row">

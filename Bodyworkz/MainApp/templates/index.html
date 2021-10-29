@@ -30,13 +30,13 @@
                         <!-- service block -->
                         <div class="service-img mb20 ">
                             <!-- service img -->
-                            <a href="# ">
+                            <a href="{% url 'therapies' %}">
                                 <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
                         </div>
                         <!-- service img -->
                         <div class="service-content ">
                             <!-- service content -->
-                            <h2><a href="# " class="title ">{{terapia.name}}</a></h2>
+                            <h2><a href="{% url 'therapies' %}" class="title ">{{terapia.name}}</a></h2>
                             <p>{{terapia.description}}</p>
                         </div>
                         <!-- service content -->
@@ -53,17 +53,19 @@
         <!-- call to action -->
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
-                    <h1 class="cta-title">Book your online appointment</h1>
+
+                    <a href="{%  url 'appointment' %}">
+                        <h1 class="cta-title">Book your online appointment <i class="fa fa-calendar" aria-hidden="true"></i></h1>
+                    </a>
+
 
                 </div>
-                <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-                    <a href="https://wa.me/+4591775076" title="click to open whatsapp chat"><button class="btn btn-success">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat Now
-                        </button></a>
-                </div>
+
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -92,8 +94,8 @@
                     </div>
                     <div class="row ">
 
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
+                        <div id="carouselExampleControls " class="carousel slide " data-ride="carousel ">
+                            <div class="carousel-inner ">
                                 {% for review in reviews %}
                                 <div class="item {% if forloop.first %} active {% endif %} ">
                                     <h2>{{review.description}}</h2>
