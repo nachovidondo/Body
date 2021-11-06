@@ -3,7 +3,7 @@ from django.db import models
 
 class Therapist(models.Model):
     name = models.CharField(max_length=200,verbose_name="Nombre")
-    image = models.ImageField(upload_to="images")
+    image = models.ImageField( upload_to="Images")
     terapia = models.CharField(max_length=200,verbose_name="Terapia")
     description = models.TextField(default="R")
     
@@ -17,7 +17,7 @@ class Therapist(models.Model):
     
 class Therapy(models.Model):
     name = models.CharField(max_length=255 , verbose_name = "Nombre")
-    image = models.ImageField(verbose_name="Foto", blank=True, null=True)
+    image = models.ImageField(verbose_name="Foto", blank=True, null=True, upload_to="Images")
     description = models.TextField()
     therapist = models.ForeignKey(Therapist, on_delete=models.CASCADE,blank=True, null=True)
     duration = models.IntegerField (verbose_name="Duracion (Tiempo) ",blank=True, null=True)

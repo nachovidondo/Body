@@ -44,10 +44,12 @@ def contacto(request):
             
     return render (request, 'contact.html', {'form':contact_form })
 
-#Automatic message after contact us
+#Automatic message after contact us and book us
 def automatic(request):
     return render (request, 'automatic.html') 
 
+def appointment_done(request):
+    return render (request, 'appointment_done.html') 
 #Our Therapist
 def our_therapist(request):
     therapist = Therapist.objects.all()
@@ -101,7 +103,7 @@ def appointment(request):
                 )
             try:
                 mail.send() #Si esta todo ok redireccionar
-                return redirect(reverse("automatic")+"?ok")
+                return redirect(reverse("appointment_done")+"?ok")
                  
                  
             

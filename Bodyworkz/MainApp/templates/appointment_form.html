@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
 <div align="center">
     <h2>Dear client, welcome to online booking.
     </h2>
@@ -6,60 +7,63 @@
         to cancel with less than 48 hours notice.</h4>
 </div>
 <br>
-<div class="table-responsive-sm">
-    <table class="table">
+<div class="container ">
+    <div class="row ">
+        <div class="table-responsive-sm">
+            <table class="table table-dark">
+                <thead class=" thead-dark ">
+                    <tr>
+                        <th scope=" col ">Therapy </th>
+                        <th scope="col ">Duration</th>
+                        <th scope="col ">Price</th>
+                        <th scope="col ">Therapist</th>
 
-        <thead>
-            <tr>
-                <th scope="col">Therapy </th>
-                <th scope="col">Duration</th>
-                <th scope="col">Price</th>
-                <th scope="col">Therapist</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for terapia in therapies %}
+                    <tr>
+                        <td class="bg-success ">
+                            {{terapia.name}}
+                        </td>
+                        <td class="bg-danger "> {{terapia.duration}} Minutes
+                        </td>
+                        <td class="bg-warning "> $ {{terapia.price}} DKK
+                        </td>
+                        <td class="bg-primary ">
+                            {{terapia.therapist}}
+                        </td>
 
-            </tr>
-        </thead>
-        <tbody>{% for terapia in therapies %}
-            <tr>
-                <td>
-                    {{terapia.name}}
-                </td>
-                <td>
-                    {{terapia.duration}} Minutes
-                </td>
-                <td>
-                    ${{terapia.price}} DKK
-                </td>
-                <td>
-                    {{terapia.therapist}}
-                </td>
+                        </th>
 
-                </th>
+                    </tr>
+                    {% endfor %}
 
-
-
-
-
-
-            </tr>
-            {% endfor %}
-        </tbody>
+                </tbody>
 
 
-    </table>
-</div>
-
-<form method="post" novalidate>
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="form-group col-md-11 mb-0">
-            {{ form|crispy }}
-
+            </table>
         </div>
-    </div>
-    <button type="submit" class="btn btn-success">Book appointment
-    </button>
 
-</form>
+        <form method="post " novalidate>
+            {% csrf_token %}
+            <div class="form-row ">
+                <div class="form-group col-md-11 mb-0 ">
+                    {{ form|crispy }}
+
+                </div>
+            </div>
+            <div class="col-md-9" align="center">
+                <input type=" submit " class="btn btn-primary" value="Confirm Booking">
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<br>
 </div>
 </div>
+
 {% endblock %}
