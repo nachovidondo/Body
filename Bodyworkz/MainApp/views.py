@@ -7,6 +7,7 @@ from .forms  import Contactform, AppointmentForm
 from django.core.mail import EmailMessage
 from django.views.generic.edit import CreateView
 from datetime import datetime
+from django.shortcuts import render,get_object_or_404
 
 
 #Index
@@ -56,9 +57,16 @@ def our_therapist(request):
     return render(request,'our_therapist.html',{'therapist':therapist})
 
 #Our Therapies
+
+
 def therapies(request):
     therapies= Therapy.objects.all()
     return render(request,'therapies.html',{'therapies':therapies})
+
+#Terapias Individuales
+def article(request, therapy_id):
+    articles = get_object_or_404(Therapy, pk = therapy_id)
+    return render (request,'article.html',{'articles' : articles})
 
 
 #review

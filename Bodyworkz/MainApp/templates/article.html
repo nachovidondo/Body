@@ -14,7 +14,7 @@
         </div>
 
         <div class="float-container ">
-            {% for terapia in therapies %}
+
             <div class="float-child">
 
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
@@ -23,23 +23,24 @@
                         <div class="service-img mb20 ">
                             <!-- service img -->
 
-                            <img src="{{terapia.image.url}} " alt=" " class="img-responsive ">
+                            <img src="{{articles.image.url}} " alt=" " class="img-responsive ">
                         </div>
                         <!-- service img -->
-                        <div>{% if terapia.price %}
-                            <h3>Price : $ {{terapia.price}} DKK</h3>
-                            {% endif %} {% if terapia.time %}
+                        <div>{% if articles.price %}
+                            <h3>Price : $ {{articles.price}} DKK</h3>
+                            {% endif %} {% if articles.time %}
 
-                            <h3>Duration of treatment : {{terapia.time}}</h3>
-                            {% endif %} {% if terapia.therapist %}
-                            <h3>Therapist : {{terapia.therapist}}</h3>
+                            <h3>Duration of treatment : {{articles.time}}</h3>
+                            {% endif %} {% if articles.therapist %}
+                            <h3>Therapist : {{articles.therapist}}</h3>
                             {% endif %}
                         </div>
                         <div class="service-content ">
                             <!-- service content -->
 
-                            <h2><a href="{% url 'article' terapia.id %} " class="tag">{{terapia.name}}</a></h2>
-                            <p>{{terapia.description}}</p>
+                            <h2>{{articles.name}}
+                            </h2>
+                            <p>{{articles.description}}</p>
                         </div>
 
                         <!-- service content -->
@@ -49,12 +50,10 @@
                 </div>
 
             </div>
-            <br> {% endfor %}
+            <br>
         </div>
 
 
     </div>
 </div>
-</div>
-
-{% endblock %}
+</div>{% endblock %}
