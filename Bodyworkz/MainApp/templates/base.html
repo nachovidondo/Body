@@ -79,7 +79,7 @@
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 {% for terapia in therapy %}
-                                <h4><a href="{% url 'article' terapia.id %} " class="tag">{{terapia.name}}</a></h4>
+                                <h5><a href="{% url 'article' terapia.id %} " class="tag">{{terapia.name}}</a></h5>
                                 {% endfor %}
 
                             </div>

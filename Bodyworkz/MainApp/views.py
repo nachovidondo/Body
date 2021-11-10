@@ -74,7 +74,11 @@ def article(request, therapy_id):
     articles = get_object_or_404(Therapy, pk = therapy_id)
     therapy = Therapy.objects.all()
     return render (request,'article.html',{'articles' : articles, 'therapy':therapy})
-
+#Individual Therapist
+def article_therapist(request, therapist_id):
+    article_therapist = get_object_or_404(Therapist, pk = therapist_id)
+    therapy = Therapy.objects.all()
+    return render (request,'article_therapist.html',{'article_therapist' : article_therapist, 'therapy':therapy})
 
 #review
 def review(request):

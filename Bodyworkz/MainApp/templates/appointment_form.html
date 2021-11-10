@@ -7,7 +7,12 @@
         to cancel with less than 48 hours notice.</h4>
 </div>
 <br>
+
+
+
 <div class="container ">
+
+    <h2 align="center">Treatments</h2>
     <div class="row ">
         <div class="table-responsive-sm">
             <table class="table table-dark">
@@ -28,10 +33,11 @@
                         </td>
                         <td class="bg-danger "> {{terapia.duration}} Minutes
                         </td>
-                        <td class="bg-warning "> $ {{terapia.price}} DKK
+                        <td class="bg-primary "> $ {{terapia.price}} DKK
                         </td>
-                        <td class="bg-primary ">
-                            {{terapia.therapist}}
+                        <td class="bg-warning ">
+                            <a href="{% url 'therapist' terapia.id %} " class="tag">
+                            {{terapia.therapist}}</a>
                         </td>
 
                         </th>
@@ -54,7 +60,7 @@
                 </div>
             </div>
             <div class="col-md-9" align="center">
-                <input type=" submit " class="btn btn-primary" value="Confirm Booking">
+                <input type=" submit " class="btn btn-primary" value="Send Message ">
             </div>
 
         </form>
