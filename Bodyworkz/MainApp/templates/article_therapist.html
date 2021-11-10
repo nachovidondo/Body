@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+
+
+
+<!-- /.call to action -->
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                <div class="section-title mb60 text-center">
+                    <!-- section title start-->
+                    <h1>Meet Our Therapist
+                    </h1>
+                    <p>Pellentesque laoreet sem nisi eget malesuada sem aliquet sit amet ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                </div>
+                <!-- /.section title end-->
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
+                <div class="team-block">
+                    <!-- team block start-->
+                    <div class="team-img">
+                        <img src="{{article_therapist.image.url}}" width="262" height="310">
+                    </div>
+                    <div class=" team-content ">
+                        <h2 class="team-title ">{{article_therapist.name}}</h2>
+                        <div class="team-meta "><span class="team-designation ">{{article_therapist.terapia}}</span></div>
+                        <br>
+                        <div>
+                            {{article_therapist.description}}
+                        </div>
+                    </div>
+                </div>
+                <!-- team block end -->
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div> {% endblock %}

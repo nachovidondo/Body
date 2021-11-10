@@ -10,6 +10,7 @@ from datetime import datetime
 from django.shortcuts import render,get_object_or_404
 
 
+
 #Index
 def index(request):
     therapy = Therapy.objects.all()
@@ -22,6 +23,7 @@ def index(request):
 
 def contacto(request):
     contact_form = Contactform()
+    therapy = Therapy.objects.all()
     if request.method == "POST":  
         contact_form = Contactform(data=request.POST)
         if contact_form.is_valid(): 
@@ -43,42 +45,49 @@ def contacto(request):
             except:
                 return redirect(reverse("contacto")+"?fail")
             
-    return render (request, 'contact.html', {'form':contact_form })
+    return render (request, 'contact.html', {'form':contact_form, 'therapy':therapy })
 
 #Automatic message after contact us and book us
 def automatic(request):
-    return render (request, 'automatic.html') 
+    therapy = Therapy.objects.all()
+    return render (request, 'automatic.html',{'therapy':therapy}) 
 
 def appointment_done(request):
-    return render (request, 'appointment_done.html') 
+    therapy = Therapy.objects.all()
+    return render (request, 'appointment_done.html',{'therapy':therapy}) 
 #Our Therapist
 def our_therapist(request):
+    therapy = Therapy.objects.all()
     therapist = Therapist.objects.all()
-    return render(request,'our_therapist.html',{'therapist':therapist})
+    return render(request,'our_therapist.html',{'therapist':therapist, 'therapy':therapy})
 
 #Our Therapies
 
 
 def therapies(request):
     therapies= Therapy.objects.all()
-    return render(request,'therapies.html',{'therapies':therapies})
+    therapy = Therapy.objects.all()
+    return render(request,'therapies.html',{'therapies':therapies,'therapy':therapy})
 
-#Terapias Individuales
+#Individual Therapies
 def article(request, therapy_id):
     articles = get_object_or_404(Therapy, pk = therapy_id)
-    return render (request,'article.html',{'articles' : articles})
+    therapy = Therapy.objects.all()
+    return render (request,'article.html',{'articles' : articles, 'therapy':therapy})
 
 
 #review
 def review(request):
     reviews= Review.objects.all()
-    return render(request,'review.html',{'reviews':reviews})
+    therapy = Therapy.objects.all()
+    return render(request,'review.html',{'reviews':reviews, 'therapy':therapy})
 
 
     
 #Appointment
 
 def appointment(request):
+    therapy = Therapy.objects.all()
     appointment_form = AppointmentForm()
     terapias_view = Therapy.objects.all()
     if request.method == "POST":  
@@ -118,4 +127,4 @@ def appointment(request):
             except:
                 return redirect(reverse("home")+"?fail")
             
-    return render (request, 'appointment_form.html', {'form':appointment_form , 'therapies' : terapias_view})
+    return render (request, 'appointment_form.html', {'form':appointment_form , 'therapies' : terapias_view, 'therapy':therapy})
