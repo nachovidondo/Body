@@ -17,24 +17,31 @@
             </div>
         </div>
 
-
         <div class="row">
 
             <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
+                {% for terapeuta in therapist %}
                 <div class="team-block">
                     <!-- team block start-->
+
                     <div class="team-img">
-                        <img src="{{article_therapist.image.url}}" width="262" height="310">
+                        <img src="{{terapeuta.image.url}}" width="262" height="310">
                     </div>
                     <div class=" team-content ">
-                        <h2 class="team-title ">{{article_therapist.name}}</h2>
-                        <div class="team-meta "><span class="team-designation ">{{article_therapist.terapia}}</span></div>
+                        <h2 class="team-title ">
+                            <a href="{% url 'therapist' terapeuta.id %} " class="tag">{{terapeuta.name}}</a>
+                        </h2>
+                        <div class="team-meta "><span class="team-designation ">{{terapeuta.terapia}}</span></div>
                         <br>
                         <div>
-                            {{article_therapist.description}}
+                            {{terapeuta.description}}
                         </div>
+
                     </div>
+
                 </div>
+                {% endfor %}
+
                 <!-- team block end -->
 
 

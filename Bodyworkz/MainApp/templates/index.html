@@ -57,7 +57,7 @@
                 <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
 
                     <a href="{%  url 'appointment' %}">
-                        <h1 class="cta-title">Book your online appointment <i class="fa fa-calendar" aria-hidden="true"></i></h1>
+                        <h1 class="cta-title">Book your appointment online <i class="fa fa-calendar" aria-hidden="true"></i></h1>
                     </a>
 
 
@@ -97,11 +97,21 @@
                         <div id="carouselExampleControls " class="carousel slide " data-ride="carousel ">
                             <div class="carousel-inner ">
                                 {% for review in reviews %}
+
+
                                 <div class="item {% if forloop.first %} active {% endif %} ">
-                                    <h2>{{review.description}}</h2>
-                                    <h5>{{review.name}}</h5>
+                                    <div>
+                                        <h3 align="center">
+                                            " {{review.description}} "</h3>
+                                        <h3 align="center">{{review.name}} {{review.age}} years old</h3>
+
+                                    </div>
+
                                 </div>
+
                                 {% endfor %}
+
+
 
 
                             </div>

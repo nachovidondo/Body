@@ -20,7 +20,6 @@ def index(request):
     return render (request,'index.html', {'therapy': therapy, 'therapist': therapist, 'reviews':reviews})
 
 #Contact
-
 def contacto(request):
     contact_form = Contactform()
     therapy = Therapy.objects.all()
@@ -55,6 +54,7 @@ def automatic(request):
 def appointment_done(request):
     therapy = Therapy.objects.all()
     return render (request, 'appointment_done.html',{'therapy':therapy}) 
+
 #Our Therapist
 def our_therapist(request):
     therapy = Therapy.objects.all()
@@ -62,8 +62,6 @@ def our_therapist(request):
     return render(request,'our_therapist.html',{'therapist':therapist, 'therapy':therapy})
 
 #Our Therapies
-
-
 def therapies(request):
     therapies= Therapy.objects.all()
     therapy = Therapy.objects.all()
@@ -74,11 +72,35 @@ def article(request, therapy_id):
     articles = get_object_or_404(Therapy, pk = therapy_id)
     therapy = Therapy.objects.all()
     return render (request,'article.html',{'articles' : articles, 'therapy':therapy})
+
 #Individual Therapist
-def article_therapist(request, therapist_id):
+def article_therapist(self,request, therapist_id):
     article_therapist = get_object_or_404(Therapist, pk = therapist_id)
     therapy = Therapy.objects.all()
-    return render (request,'article_therapist.html',{'article_therapist' : article_therapist, 'therapy':therapy})
+    terapeuta = self.request.GET.get("lang")
+    if terapeuta:
+        therapy = therapy.filter(therapist_id = terapeuta)
+            
+    
+    return render(request,'article_therapist.html',{'article_therapist' : article_therapist, 'therapy':therapy})
+
+
+
+
+#Prueba terapeuta
+
+class TerapeutaList(ListView):
+    template_name = "article_therapist.html"
+    model = Therapist
+    context_object_name = "therapist"
+    
+    def get_queryset(self):
+        qs = Therapist.objects.all()
+        terapista= self.request.GET.get("lang")
+        print(terapista)
+        qs = qs.filter(id=terapista)
+        return qs
+    
 
 #review
 def review(request):

@@ -8,8 +8,8 @@ class Therapist(models.Model):
     description = models.TextField(default="R")
     
     class Meta:
-            verbose_name="Therapy"
-            verbose_name_plural="Therapist"
+            verbose_name="Terapeuta"
+            verbose_name_plural="Terapeutas"
         
     def __str__(self):
         return self.name
@@ -19,7 +19,7 @@ class Therapy(models.Model):
     name = models.CharField(max_length=255 , verbose_name = "Nombre")
     image = models.ImageField(verbose_name="Foto", blank=True, null=True, upload_to="Images")
     description = models.TextField()
-    therapist = models.ForeignKey(Therapist, on_delete=models.CASCADE,blank=True, null=True)
+    therapist = models.ManyToManyField(Therapist, verbose_name= "Terapeuta")
     duration = models.IntegerField (verbose_name="Duracion (Tiempo) ",blank=True, null=True)
     price = models.IntegerField(verbose_name="Precio",blank=True, null=True)
     

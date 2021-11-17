@@ -7,6 +7,10 @@ from django.utils import timezone
 from django import forms
 from django.forms import widgets
 from django.forms.widgets import TextInput
+from django.utils import timezone, dateformat
+
+
+
 
 #CONTACT FORM
 
@@ -28,11 +32,15 @@ class DateTimeInput(forms.DateTimeInput):
     input_type = 'date'
     
 class DateTimeForm(forms.Form):
-    date= forms.DateField(widget= DateTimeInput)
+    date= forms.DateField(widget= DateTimeInput())
+   
 
-from django.utils import timezone, dateformat
+
 class AppointmentForm(forms.ModelForm):
     date = forms.DateTimeInput()
+   
+    
+    
 
     class Meta:
         model = Appointment

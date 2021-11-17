@@ -16,13 +16,14 @@
                 <!-- /.section title end-->
             </div>
         </div>
-        {% for terapeuta in therapist %}
 
         <div class="row">
 
             <div class="col-lg-3 col-sm-3 col-sm-6 col-xs-12">
+                {% for terapeuta in therapist %}
                 <div class="team-block">
                     <!-- team block start-->
+
                     <div class="team-img">
                         <img src="{{terapeuta.image.url}}" width="262" height="310">
                     </div>
@@ -35,10 +36,14 @@
                         <div>
                             {{terapeuta.description}}
                         </div>
+
                     </div>
+
                 </div>
-                <!-- team block end -->
                 {% endfor %}
+
+                <!-- team block end -->
+
 
             </div>
         </div>

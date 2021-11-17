@@ -690,7 +690,7 @@ label {}
 }
 
 .bg-default {
-    background-color: #375a5f;
+    background-color: rgb(223, 236, 189);
 }
 
 .bg-white {
@@ -1707,7 +1707,7 @@ label {}
 
 .sidenav li a:hover {
     color: #fff;
-    background-color: #375a5f;
+    background-color: ;
 }
 
 .sidenav li a.active,
@@ -2164,7 +2164,7 @@ address {
     color: #fff;
     text-align: center;
     background-color: #375a5f;
-    border: 1px solid #375a5f;
+    border: 1px solid;
     border-left: transparent;
 }
 
