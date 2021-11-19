@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('MainApp.urls'))
+    path('',include('MainApp.urls')),
          ]
 if settings.DEBUG:
     from django.conf.urls.static import static

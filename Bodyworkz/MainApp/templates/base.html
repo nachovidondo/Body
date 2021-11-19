@@ -113,17 +113,14 @@
             <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12">
                 <div class="footer-widget">
                     <h2 class="widget-title">Therapies</h2>
-                    <ul class="listnone">
-                        <li><a href="{% url 'therapies' %}">Massage Therapy  </a></li>
-
-                        <li><a href="{% url 'therapies' %}">Sport Massage</a></li>
-                        <li><a href="{% url 'therapies' %}">Relaxation Treatment</a></li>
-                        <li><a href="{% url 'therapies' %}">Manual Therapy</a></li>
-                        <li><a href="{% url 'therapies' %}">Diagnostics</a></li>
+                    <ul>
+                        {% for terapia in therapy %}
                         <li>
-                            <a href="{% url 'therapies' %}">Shiatsu Zen</a>
+                            <a href="{% url 'article' terapia.id %} " class="tag">{{terapia.name}}</a> {% endfor %}
+
                         </li>
                     </ul>
+
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
