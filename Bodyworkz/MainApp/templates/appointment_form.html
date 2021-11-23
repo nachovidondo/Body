@@ -51,17 +51,20 @@
         </div>
         <br>
 
-        <form method=" post " novalidate>
+        <form action="" method="POST">
             <h2 align="center ">Book us</h2>
             {% csrf_token %}
             <div class="form-row ">
                 <div class="form-group col-md-11 mb-0 ">
                     {{ form|crispy }}
-
+                    <h4>
+                        <a href="{% url 'terms_conditions' %}">Read terms and conditions </a>
+                    </h4>
                 </div>
             </div>
+
             <div class="col-md-9 " align="center ">
-                <input type="submit " class="btn btn-primary " value="Book us ">
+                <input type="submit" class="btn btn-primary " value="Book us ">
             </div>
 
         </form>

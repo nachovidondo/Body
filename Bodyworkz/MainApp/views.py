@@ -8,7 +8,7 @@ from django.core.mail import EmailMessage
 from django.views.generic.edit import CreateView
 from datetime import datetime
 from django.shortcuts import render,get_object_or_404
-
+from django.urls import reverse_lazy
 
 
 #Index
@@ -112,45 +112,42 @@ def review(request):
     
 #Appointment
 
-def appointment(request):
-    therapy = Therapy.objects.all()
-    appointment_form = AppointmentForm()
-    terapias_view = Therapy.objects.all()
-    if request.method == "POST":  
-        appointment_form = AppointmentForm(data=request.POST)
-        if appointment_form.is_valid(): 
-            name= request.POST.get('name')
-            surname = request.POST.get('surname')
-            email= request.POST.get('email')
-            phone_number = request.POST.get('phone_number')
-            date = request.POST.get('date')
-            date_time = datetime.strptime(date,'%Y-%m-%d')
-            date_1= date_time.date()
-            time = request.POST.get('time')
-            therapy = request.POST.get('therapy')
-          
-            query_therapy = Therapy.objects.get(pk=therapy)
-            terapia= str(query_therapy.name)
-            price = str(query_therapy.price)
-            time = str(query_therapy.duration)
-            
-            comments = request.POST.get('comments')
-            
-        
-            
-            mail = EmailMessage(
+
+class CreateAppointment(CreateView):
+    model = Appointment
+    template_name = 'appointment_form.html'
+    form_class = AppointmentForm
+    fiels = ['__all__']
+    success_url = reverse_lazy('appointment_done')
+    #Function to send email
+    def form_valid(self,form):
+        name= self.request.POST.get('name')
+        surname = self.request.POST.get('surname')
+        email= self.request.POST.get('email')
+        phone_number = self.request.POST.get('phone_number')
+        date = self.request.POST.get('date')
+        date_time = datetime.strptime(date,'%Y-%m-%d')
+        date_1= date_time.date()
+        time = self.request.POST.get('time')
+        therapy = self.request.POST.get('therapy')
+        query_therapy = Therapy.objects.get(pk=therapy)
+        terapia= str(query_therapy.name)
+        price = str(query_therapy.price)
+        time = str(query_therapy.duration)
+        comments = self.request.POST.get('comments')
+        mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
                 "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes \n \n price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time ,price,comments),
-                "bodyworkz.com", ["nachovidondo@gmail.com","email"],
+                "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email]
                 )
-            try:
-                mail.send() #Si esta todo ok redireccionar
-                return redirect(reverse("appointment_done")+"?ok")
+        
+        mail.send() 
                  
-                 
-            
-            except:
-                return redirect(reverse("home")+"?fail")
-            
-    return render (request, 'appointment_form.html', {'form':appointment_form , 'therapies' : terapias_view, 'therapy':therapy})
+        
+        
+        return super().form_valid(form)
+
+
+def terms_conditions(request):
+    return render(request, 'terms_conditions.html')

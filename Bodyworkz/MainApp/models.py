@@ -71,12 +71,13 @@ class Appointment(models.Model):
         date = models.DateTimeField()
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
         therapy = models.ForeignKey( Therapy, on_delete = models.CASCADE)
-        comments = models.TextField() 
+        comments = models.TextField(blank=True) 
+        
         
         class Meta:
                 verbose_name = "Appointment"
                 verbose_name_plural = "Appointments"
                 
         def __str__(self):
-                return self.name + ' ' + self.surname
-                
+                return self.name + ' ' + self.surname + ' ' + str(self.therapy)+ ' ' + str(self.date)+ str(self.time)
+ 
