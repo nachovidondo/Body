@@ -11,6 +11,7 @@ from django.shortcuts import render,get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django import forms
+from .demo import create_event
 
 
 #Index
@@ -159,7 +160,13 @@ class CreateAppointment(ListView, FormMixin):
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
+          
+          
             #Is all the information ok? Save it.
+            
+            create_event(name)
+            
+            
             appointmnet_form.save()
         else:
             return redirect(reverse("appointment_fail"))

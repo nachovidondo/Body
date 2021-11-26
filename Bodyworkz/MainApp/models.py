@@ -1,4 +1,6 @@
+from datetime import date
 from django.db import models
+
 
 
 class Therapist(models.Model):
@@ -79,5 +81,8 @@ class Appointment(models.Model):
                 verbose_name_plural = "Appointments"
                 
         def __str__(self):
+                
+              
+                
                 return self.name + ' ' + self.surname + ' ' + str(self.therapy)+ ' ' + str(self.date)+ str(self.time)
- 
+        
