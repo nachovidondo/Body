@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django import forms
 from .demo import create_event
-
+import datetime as dt   
 
 #Index
 def index(request):
@@ -144,11 +144,12 @@ class CreateAppointment(ListView, FormMixin):
         date_time = datetime.strptime(date,'%Y-%m-%d')
         date_1= date_time.date()
         time = self.request.POST.get('time')
+        
         therapy = self.request.POST.get('therapy')
         query_therapy = Therapy.objects.get(pk=therapy)
         terapia= str(query_therapy.name)
         price = str(query_therapy.price)
-        time = str(query_therapy.duration)
+        #time = str(query_therapy.duration)
         comments = self.request.POST.get('comments')
         appointmnet_form = AppointmentForm(data=request.POST)
         
@@ -160,11 +161,13 @@ class CreateAppointment(ListView, FormMixin):
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
-          
+            date_nuevo=datetime.fromisoformat(date)
+            print(date_nuevo)
+           
           
             #Is all the information ok? Save it.
             
-            create_event(name)
+            create_event(name,surname,date,time,phone_number,email,terapia,comments)
             
             
             appointmnet_form.save()

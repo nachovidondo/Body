@@ -1,34 +1,44 @@
 from pprint import pprint
 from .Google import Create_Service, convert_to_RFC_datetime
+from datetime import datetime
 
-
-def create_event(name):
+def create_event(name,surname,date,time,phone_number,email,terapia,comments):
     CLIENTE = "credentials.json"
     API_NAME = "calendar"
     API_VERSION = "v3"
     SCOPES = ["https://www.googleapis.com/auth/calendar"]
     service = Create_Service(CLIENTE,API_NAME,API_VERSION,SCOPES)
     calendar_id = 'c8do5koghfaug8f3k7ahj9hh6g@group.calendar.google.com'
-    hour_adjustment = -2
+    hour_adjustment = -1
+    #Config date time to google config
+    date_y = int(date[0:4])
+    date_m = int(date[5:7])
+    date_d = int(date[8:10])
+    
+    time_h =int(time[0:2])
+    time_m = int(time[3:5])
+ 
+
     event_request_body = {
                  "start":{
-        "dateTime": convert_to_RFC_datetime(2021,11,27,12,0),
+        "dateTime": convert_to_RFC_datetime(date_y,date_m,date_d,time_h+hour_adjustment,time_m),
         "timeZone": "Europe/London"
         },
                  "end":{
-        "dateTime": convert_to_RFC_datetime(2021,11,27,13,0),
+        "dateTime": convert_to_RFC_datetime(date_y,date_m,date_d,time_h+1+hour_adjustment,time_m),
         "timeZone": "Europe/London",
         },
-                 "summary":name,
-                 "description":"",
-                 "colorId":5,
+                 "summary":terapia + "     "+ name+ "     " + surname,
+                 "description": "Email:"+  email+ " Phone : "+ phone_number ,
+                 "colorId":2,
                  "status":"confirmed",
                  "transparency":"opaque",
                  "visibility":"private",
                  "location":"Denmark",
                  "attendees":[{
-                         "comment":name,
-                         "email":"nachovidondo@gmail.com",
+                         "comment":comments,
+                         "email":email,
+                         "number":phone_number,
                          "responseStatus":"accepted",
                          }]
                  }
