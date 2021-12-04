@@ -2,7 +2,7 @@
 
 <body>
     <div class="row">
-        <img src="massage.jpg" alt="" class="img-responsive">
+        <img src="BodyWorkz.gif" width="1400" height="780"></img>
 
 
 
@@ -23,41 +23,51 @@
                 </div>
             </div>
 
-            <div class="row ">
+
+            <div class="row " style="display:flex">
+
                 {% for terapia in therapy %}
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-                    <div class="service-block ">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 " style="width: 25%; float:left; flex: 1;">
+                    <div class="service-block">
+
                         <!-- service block -->
-                        <div class="service-img mb20 ">
+                        <div class="service-img mb20">
                             <!-- service img -->
-                            <a href="{% url 'therapies' %}">
+                            <a href="{% url 'therapies' %} ">
                                 <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
                         </div>
                         <!-- service img -->
                         <div class="service-content ">
                             <!-- service content -->
-                            <h2><a href="{% url 'therapies' %}" class="title ">{{terapia.name}}</a></h2>
+                            <h2><a href="{% url 'therapies' %} ">{{terapia.name}}</a></h2>
                             <p>{{terapia.description}}</p>
                         </div>
+
                         <!-- service content -->
                     </div>
+
                     <!-- /.service block -->
 
-                </div>
-                {% endfor %}
+                </div> {% endfor %}
+
+
 
             </div>
         </div>
     </div>
-    <div class="space-small bg-primary">
+
+    </div>
+    </div>
+    </div>
+    <div class="space-small bg-primary ">
         <!-- call to action -->
-        <div class="container">
-            <div class="row">
+        <div class="container ">
+            <div class="row ">
 
-                <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12">
+                <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12 ">
 
-                    <a href="{%  url 'appointment' %}">
-                        <h1 class="cta-title">Book your appointment online <i class="fa fa-calendar" aria-hidden="true"></i></h1>
+                    <a href="{% url 'appointment' %} ">
+                        <h1 class="cta-title ">Book your appointment online <i class="fa fa-calendar " aria-hidden="true "></i></h1>
                     </a>
 
 
@@ -74,10 +84,7 @@
         <div class="container ">
             <div class="row ">
                 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12 ">
-                    <div class="section-title mb40 text-center ">
-                        <!-- section title start-->
-                        <h1>Testimonials </h1>
-                    </div>
+
                     <!-- /.section title start-->
                 </div>
             </div>
@@ -94,8 +101,8 @@
                     </div>
                     <div class="row ">
 
-                        <div id="carouselExampleControls " class="carousel slide " data-ride="carousel ">
-                            <div class="carousel-inner ">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
                                 {% for review in reviews %}
 
 
@@ -112,17 +119,16 @@
                                 {% endfor %}
 
 
-
-
                             </div>
 
                         </div>
 
                     </div>
-
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
     </div>
 

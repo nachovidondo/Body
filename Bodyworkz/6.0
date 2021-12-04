@@ -1,0 +1,8 @@
+Requirement already satisfied: twilio in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (7.3.1)
+Requirement already satisfied: pytz in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from twilio) (2020.4)
+Requirement already satisfied: requests>=2.0.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from twilio) (2.25.1)
+Requirement already satisfied: PyJWT<3.0.0,>=2.0.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from twilio) (2.3.0)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from requests>=2.0.0->twilio) (1.26.2)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from requests>=2.0.0->twilio) (2020.11.8)
+Requirement already satisfied: idna<3,>=2.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from requests>=2.0.0->twilio) (2.10)
+Requirement already satisfied: chardet<5,>=3.0.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from requests>=2.0.0->twilio) (4.0.0)

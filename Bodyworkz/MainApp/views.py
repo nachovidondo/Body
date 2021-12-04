@@ -119,12 +119,13 @@ def review(request):
 class CreateAppointment(ListView, FormMixin):
     
     model = Therapy
+    
     template_name = 'appointment_form.html'
     form_class = AppointmentForm
     fiels = ['__all__']
     success_url = reverse_lazy('appointment_done')
-    context_object_name = "therapies"
- 
+    context_object_name = "therapy"
+    
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = AppointmentForm
@@ -134,6 +135,8 @@ class CreateAppointment(ListView, FormMixin):
   
     #Function to send email
     def post(self, request, *args, **kwargs):
+       
+ 
         #Information
         name= self.request.POST.get('name')
         surname = self.request.POST.get('surname')
@@ -161,15 +164,12 @@ class CreateAppointment(ListView, FormMixin):
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
-            date_nuevo=datetime.fromisoformat(date)
-            print(date_nuevo)
-           
-          
-            #Is all the information ok? Save it.
+        
+            #Function to get the client in Google calendar
             
             create_event(name,surname,date,time,phone_number,email,terapia,comments)
             
-            
+            #Its everthing ok ? save it.
             appointmnet_form.save()
         else:
             return redirect(reverse("appointment_fail"))

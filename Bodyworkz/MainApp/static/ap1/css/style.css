@@ -1650,10 +1650,12 @@ label {}
 
 .service-img {
     margin-bottom: 30px;
+    border-radius: 8px;
 }
 
 .service-img img {
     width: 100%;
+    border-radius: 8px;
 }
 
 .service-caption {}
@@ -1672,7 +1674,9 @@ label {}
 
 .service-single-block {}
 
-.service-single-img {}
+.service-single-img {
+    border-radius: 8px;
+}
 
 .service-single-content {}
 

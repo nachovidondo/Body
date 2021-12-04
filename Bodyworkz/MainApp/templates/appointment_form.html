@@ -15,7 +15,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for terapia in therapies %}
+                    {% for terapia in therapy %}
                     <tr>
                         <td class="bg-success ">
                             <a href="{% url 'article' terapia.id %} " class="tag"> {{terapia.name}}</a>
