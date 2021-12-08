@@ -52,5 +52,5 @@ if __name__ == '__main__':
     API_NAME = 'Calen'
     API_VERSION = 'v3'
     SCOPES = ['https://www.googleapis.com/auth/calendar']
-    CLIENT_FILE = 'credentials.json'
+    CLIENT_FILE = '1.json'
     service = Create_Service(CLIENT_FILE, API_NAME, API_VERSION, SCOPES, 'x')
