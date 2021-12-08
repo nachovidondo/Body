@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %} {% load static %}
-<div class="space-medium ">
-    <div class="container ">
+<div class="space-medium">
+    <div class="container" align-items="center" justify-content: "center">
         <div class="row ">
             <div class="col-md-offset-2 col-md-8 ">
                 <div class="mb60 text-center section-title ">
@@ -15,7 +15,7 @@
 
         <div class="float-container ">
 
-            <div class="float-child">
+            <div class="float-child ">
 
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="service-block ">
@@ -25,16 +25,7 @@
 
                             <img src="{{articles.image.url}} " alt=" " class="img-responsive ">
                         </div>
-                        <!-- service img -->
-                        <div>{% if articles.price %}
-                            <h3>Price : $ {{articles.price}} DKK</h3>
-                            {% endif %} {% if articles.time %}
 
-                            <h3>Duration of treatment : {{articles.time}}</h3>
-                            {% endif %} {% if articles.therapist %}
-                            <h3>Therapist : {{articles.therapist}}</h3>
-                            {% endif %}
-                        </div>
                         <div class="service-content ">
                             <!-- service content -->
 
@@ -46,8 +37,19 @@
                         <!-- service content -->
                     </div>
                     <br>
+                    <!-- service img -->
+                    <div>{% if articles.price %}
+                        <h3>Price : $ {{articles.price}} DKK</h3>
+                        {% endif %} {% if articles.duration %}
+
+                        <h3>Duration : {{articles.duration}} '</h3>
+                        {% endif %} {% if articles.therapist %}
+                        <h3>Therapist : {% for therapist in articles.therapist.all %} {{therapist.name}} {% endfor %}</h3>
+                        {% endif %}
+                    </div>
+                    <br>
                     <!-- /.service block -->
-                    <button type="button" class="btn btn-secondary btn-lg"> <a href="{% url 'appointment' %}">Book us</a></button></button>
+                    <button type="button " class="btn btn-secondary btn-lg "> <a href="{% url 'appointment' %} ">Book us</a></button></button>
                 </div>
                 <br>
             </div>

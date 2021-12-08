@@ -65,7 +65,10 @@ class Appointment(models.Model):
                 ("20:00", "20:00"),
                 
 )
-  
+        ADD_CHOICES =(
+                ("10' more please", "10' more for $25 DKK"),
+                ("20' more please", "20' more for $50 DKK"),
+                ("30' more please", "30' more for $100 DKK"),)
         name = models.CharField(max_length=255, verbose_name="Name")
         surname = models.CharField(max_length=255, verbose_name = "Surname")
         phone_number = models.CharField(max_length=255, verbose_name = "Phone number")
@@ -73,6 +76,7 @@ class Appointment(models.Model):
         date = models.DateTimeField()
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
         therapy = models.ForeignKey( Therapy, on_delete = models.CASCADE)
+        more_time = models.CharField( verbose_name = "Please add more time", max_length=255,  choices=ADD_CHOICES, blank=True, null=True, default=None)
         comments = models.TextField(blank=True) 
         
         

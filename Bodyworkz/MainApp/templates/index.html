@@ -2,7 +2,7 @@
 
 <body>
     <div class="row">
-        <img src="BodyWorkz.gif" width="1400" height="780"></img>
+        <video src="vi.mp4" autoplay muted loop width=100%></video>
 
 
 
@@ -37,13 +37,15 @@
                                 <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
                         </div>
                         <!-- service img -->
-                        <div class="service-content ">
+                        <div class="service-content">
                             <!-- service content -->
-                            <h2><a href="{% url 'therapies' %} ">{{terapia.name}}</a></h2>
+                            <h2><a href="{% url 'article' terapia.id %}">{{terapia.name}}</a></h2>
                             <p>{{terapia.description}}</p>
                         </div>
+                        <br>
 
-                        <!-- service content -->
+                        <h4><a href="{% url 'article' terapia.id %}"><b>Read more..</b></a></h4>
+
                     </div>
 
                     <!-- /.service block -->

@@ -11,7 +11,7 @@ from django.shortcuts import render,get_object_or_404
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django import forms
-from .demo import create_event
+from Calendar.demo import create_event
 import datetime as dt   
 
 #Index
@@ -147,6 +147,8 @@ class CreateAppointment(ListView, FormMixin):
         date_time = datetime.strptime(date,'%Y-%m-%d')
         date_1= date_time.date()
         time = self.request.POST.get('time')
+        more_time = self.request.POST.get('please_add_more_time')
+        
         
         therapy = self.request.POST.get('therapy')
         query_therapy = Therapy.objects.get(pk=therapy)
@@ -160,7 +162,7 @@ class CreateAppointment(ListView, FormMixin):
         if str(date) > str(now):
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes \n \n price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time ,price,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time,more_time ,price,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
