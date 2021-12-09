@@ -1,39 +1,21 @@
 {% extends "base.html" %} {% block content %} {% load static %}
-<div class="space-medium">
+<div class="mb60">
     <div class="container" align-items="center" justify-content: "center">
-        <div class="row ">
-            <div class="col-md-offset-2 col-md-8 ">
-                <div class="mb60 text-center section-title ">
-                    <!-- section title start-->
-
-                    <h1>{{articles.name}}</h1>
-
-                </div>
-                <!-- /.section title start-->
-            </div>
-        </div>
-
         <div class="float-container ">
-
             <div class="float-child ">
-
-                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 ">
                     <div class="service-block ">
                         <!-- service block -->
-                        <div class="service-img mb20 ">
+                        <div class="top-image-container mb20">
                             <!-- service img -->
-
-                            <img src="{{articles.image.url}} " alt=" " class="img-responsive ">
+                            <img src="{{articles.image.url}} " alt=" " class="top-image">
                         </div>
-
-                        <div class="service-content ">
+                        <div class="service-content">
                             <!-- service content -->
-
-                            <h2>{{articles.name}}
-                            </h2>
+                            <h1 class="title-centered">{{articles.name}}
+                            </h1>
                             <p>{{articles.description}}</p>
                         </div>
-
                         <!-- service content -->
                     </div>
                     <br>

@@ -68,6 +68,15 @@ p {
 
 p:last-child {
     margin-bottom: 0px;
+    height: 55px;
+    --max-lines: 4;
+    position: relative;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    word-break: break-word;
+    padding-right: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 ul,
@@ -134,6 +143,19 @@ h3 small {
 .bdr-btm {
     border-bottom: 1px solid #f1f3f8;
     margin-bottom: 30px;
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.dropdown-menu h5 {
+    padding: 15px 12px;
+    margin: 0;
+}
+
+.dropdown-menu h5:hover {
+    background-color: #EEE;
 }
 
 hr {
@@ -974,9 +996,30 @@ label {}
 
 .call-no {}
 
-.mail-block {}
+.mail-block {
+    border-radius: 10px;
+    background-color: #b8907c;
+    height: 40px;
+    border: none;
+    font-weight: 400;
+    text-transform: lowercase;
+}
 
-.mail-text {}
+.mail-block:hover {
+    background-color: #b8907cAA;
+}
+
+.whatsapp-button {
+    border-radius: 10px;
+}
+
+.mail-text {
+    color: white;
+}
+
+.mail-text:hover {
+    color: white;
+}
 
 .time-block {}
 
@@ -1658,6 +1701,26 @@ label {}
 .service-img img {
     width: 100%;
     border-radius: 8px;
+    object-fit: cover
+}
+
+.title-centered {
+    text-align: center;
+}
+
+.top-image-container {
+    display: flex;
+    align-items: center;
+}
+
+.top-image {
+    /* Full banner */
+    /* Buscar imagenes gigantes tipo wallpapers */
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+    /* Half screen */
+    /* width: 50%; */
 }
 
 .service-caption {}
@@ -2273,8 +2336,16 @@ ul.widget-recent-post {}
     margin-bottom: 20px;
 }
 
-.team-img {
+.team-img-container {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.team-img {
+    border-radius: 300px;
+    box-shadow: 1px 1px 10px 5px #EEE;
 }
 
 .team-content {
@@ -2524,3 +2595,5 @@ ul.widget-recent-post {}
 }
 
 }
+h,
+borpx-left: 10px.dp
