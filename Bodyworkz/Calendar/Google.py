@@ -10,7 +10,7 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes, prefix=''
     API_SERVICE_NAME = api_name
     API_VERSION = api_version
     SCOPES = [scope for scope in scopes[0]]
-    
+
     cred = None
     working_dir = os.getcwd()
     token_dir = 'token files'
@@ -52,5 +52,5 @@ if __name__ == '__main__':
     API_NAME = 'Calen'
     API_VERSION = 'v3'
     SCOPES = ['https://www.googleapis.com/auth/calendar']
-    CLIENT_FILE = '1.json'
+    CLIENT_FILE = '/home/BodyWorkz/Body/Bodyworkz/1.json'
     service = Create_Service(CLIENT_FILE, API_NAME, API_VERSION, SCOPES, 'x')

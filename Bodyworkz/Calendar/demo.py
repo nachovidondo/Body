@@ -3,7 +3,7 @@ from .Google import Create_Service, convert_to_RFC_datetime
 from datetime import datetime
 
 def create_event(name,surname,date,time,phone_number,email,terapia,comments):
-    CLIENTE = "1.json"
+    CLIENTE = "/home/BodyWorkz/Body/1.json"
     API_NAME = "calendar"
     API_VERSION = "v3"
     SCOPES = ["https://www.googleapis.com/auth/calendar"]
@@ -14,10 +14,10 @@ def create_event(name,surname,date,time,phone_number,email,terapia,comments):
     date_y = int(date[0:4])
     date_m = int(date[5:7])
     date_d = int(date[8:10])
-    
+
     time_h =int(time[0:2])
     time_m = int(time[3:5])
- 
+
 
     event_request_body = {
                  "start":{

@@ -1428,7 +1428,9 @@ figure {
 }
 
 img {
-    vertical-align: middle
+    vertical-align: middle;
+    object-fit: cover;
+
 }
 
 .carousel-inner>.item>a>img,

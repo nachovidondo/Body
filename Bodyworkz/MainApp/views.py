@@ -115,7 +115,6 @@ def review(request):
     
 #Appointment
 
-
 class CreateAppointment(ListView, FormMixin):
     
     model = Therapy
@@ -147,22 +146,34 @@ class CreateAppointment(ListView, FormMixin):
         date_time = datetime.strptime(date,'%Y-%m-%d')
         date_1= date_time.date()
         time = self.request.POST.get('time')
-        more_time = self.request.POST.get('please_add_more_time')
-        
-        
+        more_time = self.request.POST.get('more_time')
+   
+        price_more_time=0
+        if more_time == "10' more please":
+            price_more_time =25
+            
+        elif more_time =="20' more please": 
+            price_more_time =50
+        elif more_time == "30' more please":
+            price_more_time =100
+        else:
+            price_more_time == 0       
         therapy = self.request.POST.get('therapy')
         query_therapy = Therapy.objects.get(pk=therapy)
         terapia= str(query_therapy.name)
         price = str(query_therapy.price)
-        #time = str(query_therapy.duration)
+        duration = str(query_therapy.duration)
+        
         comments = self.request.POST.get('comments')
         appointmnet_form = AppointmentForm(data=request.POST)
-        
+      
+        total_price = int(price) + int(price_more_time)
+    
         #Validation Date
         if str(date) > str(now):
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date-time {} \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,email,phone_number,terapia,time,more_time ,price,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date: {}  time: {}hs \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,time,email,phone_number,terapia,duration,more_time,total_price,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
