@@ -1,9 +1,10 @@
- {% extends "base.html" %} {% block content %} {% load static %}
+{% extends "base.html" %} {% block content %} {% load static %}
 
 <body>
     <div class="row">
         {% for video in index %}
-        <video src="{{video.video.url}}" autoplay muted loop width=100% type="video/mp4"></video> {% endfor %}
+        <video src={{video.video.url}} autoplay muted loop width=100%></video>
+        {% endfor %}
 
 
 
@@ -17,10 +18,8 @@
                     <div class="mb60 text-center section-title">
                         <!-- section title start-->
 
-                        <h3>Here you can find our services</h3>
-                        <p>We’ve been helping a lot of clients with treating muscle injuries, stiffness in neck and shoulders, suffering from headache, depression; chronic fatigue, poor circulation, insomnia, rhetorical arthritis and all other common health
-                            issues.
-                        </p>
+                        <h1>Treat yourself to a massage</h1>
+                       <h3>Get a wellness massage and sports massage of the highest quality </h3>
                     </div>
                     <!-- /.section title start-->
                 </div>
@@ -36,21 +35,18 @@
                         <!-- service block -->
                         <div class="service-img mb20">
                             <!-- service img -->
-                            <a href="{% url 'article' terapia.id %}">
+                            <a href="{% url 'therapies' %} ">
                                 <img src="{{terapia.image.url}} " alt=" " class="img-responsive "></a>
                         </div>
                         <!-- service img -->
                         <div class="service-content">
                             <!-- service content -->
                             <h2><a href="{% url 'article' terapia.id %}">{{terapia.name}}</a></h2>
-                            <h5>
-                                <a href="{% url 'article' terapia.id %}">{{terapia.short_description}}</a>
 
-                            </h5>
                         </div>
+                        <br>
 
-
-                        <h4><a href="{% url 'article' terapia.id %}">Read more..</a></h4>
+                        <h4><a href="{% url 'article' terapia.id %}"><b>Read more..</b></a></h4>
 
                     </div>
 

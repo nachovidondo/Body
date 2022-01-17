@@ -1,4 +1,4 @@
-from . models import Therapist, Therapy, Review, Appointment
+from . models import Therapist, Therapy, Review, Appointment, Index
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView, View
@@ -12,23 +12,24 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django import forms
 from Calendar.demo import create_event
-import datetime as dt   
+import datetime as dt
 
 #Index
 def index(request):
     therapy = Therapy.objects.all()
     therapist = Therapist.objects.all()
     reviews = Review.objects.all()
+    index = Index.objects.all()
 
-    return render (request,'index.html', {'therapy': therapy, 'therapist': therapist, 'reviews':reviews})
+    return render (request,'index.html', {'therapy': therapy, 'therapist': therapist, 'reviews':reviews,'index':index})
 
 #Contact
 def contacto(request):
     contact_form = Contactform()
     therapy = Therapy.objects.all()
-    if request.method == "POST":  
+    if request.method == "POST":
         contact_form = Contactform(data=request.POST)
-        if contact_form.is_valid(): 
+        if contact_form.is_valid():
             name= request.POST.get('name')
             email= request.POST.get('email')
             content= request.POST.get('content')
@@ -41,22 +42,22 @@ def contacto(request):
             try:
                 mail.send() #Si esta todo ok redireccionar
                 return redirect(reverse("automatic")+"?ok")
-                 
-                 
-            
+
+
+
             except:
                 return redirect(reverse("contacto")+"?fail")
-            
+
     return render (request, 'contact.html', {'form':contact_form, 'therapy':therapy })
 
 #Automatic message after contact us and book us
 def automatic(request):
     therapy = Therapy.objects.all()
-    return render (request, 'automatic.html',{'therapy':therapy}) 
+    return render (request, 'automatic.html',{'therapy':therapy})
 
 def appointment_done(request):
     therapy = Therapy.objects.all()
-    return render (request, 'appointment_done.html',{'therapy':therapy}) 
+    return render (request, 'appointment_done.html',{'therapy':therapy})
 
 #Our Therapist
 def our_therapist(request):
@@ -83,8 +84,8 @@ def article_therapist(self,request, therapist_id):
     terapeuta = self.request.GET.get("lang")
     if terapeuta:
         therapy = therapy.filter(therapist_id = terapeuta)
-            
-    
+
+
     return render(request,'article_therapist.html',{'article_therapist' : article_therapist, 'therapy':therapy})
 
 
@@ -96,14 +97,14 @@ class TerapeutaList(ListView):
     template_name = "article_therapist.html"
     model = Therapist
     context_object_name = "therapist"
-    
+
     def get_queryset(self):
         qs = Therapist.objects.all()
         terapista= self.request.GET.get("lang")
         print(terapista)
         qs = qs.filter(id=terapista)
         return qs
-    
+
 
 #review
 def review(request):
@@ -112,30 +113,30 @@ def review(request):
     return render(request,'review.html',{'reviews':reviews, 'therapy':therapy})
 
 
-    
+
 #Appointment
 
 class CreateAppointment(ListView, FormMixin):
-    
+
     model = Therapy
-    
+
     template_name = 'appointment_form.html'
     form_class = AppointmentForm
     fiels = ['__all__']
     success_url = reverse_lazy('appointment_done')
     context_object_name = "therapy"
-    
+
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = AppointmentForm
-        
+
         return context
-        
-  
+
+
     #Function to send email
     def post(self, request, *args, **kwargs):
-       
- 
+
+
         #Information
         name= self.request.POST.get('name')
         surname = self.request.POST.get('surname')
@@ -147,28 +148,28 @@ class CreateAppointment(ListView, FormMixin):
         date_1= date_time.date()
         time = self.request.POST.get('time')
         more_time = self.request.POST.get('more_time')
-   
+
         price_more_time=0
         if more_time == "10' more please":
             price_more_time =25
-            
-        elif more_time =="20' more please": 
+
+        elif more_time =="20' more please":
             price_more_time =50
         elif more_time == "30' more please":
             price_more_time =100
         else:
-            price_more_time == 0       
+            price_more_time == 0
         therapy = self.request.POST.get('therapy')
         query_therapy = Therapy.objects.get(pk=therapy)
         terapia= str(query_therapy.name)
         price = str(query_therapy.price)
         duration = str(query_therapy.duration)
-        
+
         comments = self.request.POST.get('comments')
         appointmnet_form = AppointmentForm(data=request.POST)
-      
+
         total_price = int(price) + int(price_more_time)
-    
+
         #Validation Date
         if str(date) > str(now):
             mail = EmailMessage(
@@ -177,19 +178,19 @@ class CreateAppointment(ListView, FormMixin):
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
-        
+
             #Function to get the client in Google calendar
-            
+
             create_event(name,surname,date,time,phone_number,email,terapia,comments)
-            
+
             #Its everthing ok ? save it.
             appointmnet_form.save()
         else:
             return redirect(reverse("appointment_fail"))
 
-        
+
         return redirect(reverse("appointment_done"))
-        
+
 
 
 def terms_conditions(request):
