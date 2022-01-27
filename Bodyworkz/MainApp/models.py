@@ -43,8 +43,9 @@ class Therapy(models.Model):
 
 class Review(models.Model):
     name = models.CharField(verbose_name="nombre", max_length=255)
-    description = models.TextField()
-    age = models.IntegerField()
+    email = models.EmailField()
+    description = models.TextField(default=None)
+    age = models.CharField(verbose_name="edad",max_length=255)
 
     class Meta:
             verbose_name="Review"

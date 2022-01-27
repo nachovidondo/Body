@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block content %} {% load static %}
+{% extends "base.html" %} {% block content %} {% load static %} {% load crispy_forms_tags %}
 
 <div class="space-medium ">
     <div class="container ">
@@ -19,7 +19,7 @@
 
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            {% for review in reviews %}
+                            {% for review in object_list %}
 
 
                             <div class="item {% if forloop.first %} active {% endif %} ">
@@ -35,20 +35,62 @@
                             {% endfor %}
 
 
+
+
                         </div>
 
                     </div>
 
-                </div>
 
+                </div>
 
             </div>
 
         </div>
+        <br>
+
+
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                <div class="row">
+                    <div class="col-md-2">
+                        {{ form.name }}
+                    </div>
+                    <div class="col-md-2">
+                        {{ form.email }}
+                    </div>
+                    <div class="col-md-2">
+                        {{ form.age }}
+                    </div>
+                    <br>
+                    <div class="col-md-10">
+                        {{form.description}}
+                    </div>
+                    <div class="col-md-9" align="center">
+                        <input type="submit" class="btn btn-primary" value="Send Testimonial">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
 
     </div>
 
 </div>
+<div>
+
+
+
 </div>
+
+
+</div>
+
+</div>
+
 </div>
 {% endblock %}

@@ -1,9 +1,10 @@
+import email
 from . models import Therapist, Therapy, Review, Appointment, Index
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView, View
 from django.shortcuts import render,reverse , redirect
-from .forms  import Contactform, AppointmentForm
+from .forms  import Contactform, AppointmentForm, Testimonialsform
 from django.core.mail import EmailMessage
 from django.views.generic.edit import CreateView, FormMixin
 from datetime import datetime
@@ -34,9 +35,9 @@ def contacto(request):
             email= request.POST.get('email')
             content= request.POST.get('content')
             mail = EmailMessage(
-                "Bodyworkz Massage : Nuevo Mensaje de Contacto ",
-                "De {} {}\n\nEscribio:\n\n {}".format(name ,email,content),
-                "bodyworkz.com", ["nachovidondo@gmail.com"],
+                "Bodyworkz Message : New Message Contact ",
+                "From {} {}\n\n wrote :\n\n {}".format(name ,email,content),
+                "bodyworkz.com", ["bodyworkz90@gmail.com"],
                 reply_to = [email]
                 )
             try:
@@ -106,18 +107,45 @@ class TerapeutaList(ListView):
         return qs
 
 
-#review
-def review(request):
-    reviews= Review.objects.all()
-    therapy = Therapy.objects.all()
-    return render(request,'review.html',{'reviews':reviews, 'therapy':therapy})
+#Testimonials
 
-
+class Testimonials(ListView, FormMixin):
+    model = Review
+    template_name = 'review.html'
+    
+    form_class = Testimonialsform
+    fields = ['__all__']
+    success_url = reverse_lazy('review')
+    
+ 
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = Testimonialsform()
+        return context
+    def post(self, request, *args, **kwargs):
+        name = self.request.POST.get('name')
+        email = self.request.POST.get('email')
+        age = self.request.POST.get('age')
+        description = self.request.POST.get('description')
+        
+        testimonials_form = Testimonialsform(data=request.POST)
+        if testimonials_form.is_valid():
+            mail = EmailMessage(
+                "New Testimonial to BodyWorkz : New Testimonial ",
+                "From {} \n {} \n {}  wrote :\n\n {}".format(name,email,age,description),
+                "bodyworkz.com", ["bodyworkz90@gmail.com"],
+                
+                reply_to = [email]
+                )
+            mail.send()
+            testimonials_form.save()
+        
+        return redirect(reverse("automatic"))
+        
 
 #Appointment
 
 class CreateAppointment(ListView, FormMixin):
-
     model = Therapy
 
     template_name = 'appointment_form.html'
@@ -125,6 +153,7 @@ class CreateAppointment(ListView, FormMixin):
     fiels = ['__all__']
     success_url = reverse_lazy('appointment_done')
     context_object_name = "therapy"
+    
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
@@ -181,7 +210,7 @@ class CreateAppointment(ListView, FormMixin):
 
             #Function to get the client in Google calendar
 
-            create_event(name,surname,date,time,phone_number,email,terapia,comments)
+            #create_event(name,surname,date,time,phone_number,email,terapia,comments)
 
             #Its everthing ok ? save it.
             appointmnet_form.save()

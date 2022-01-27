@@ -1,6 +1,6 @@
 
 from django.forms import DateTimeInput
-from .models import Appointment
+from .models import Appointment, Review
 from django import forms
 from django.forms.widgets import TextInput
 
@@ -42,4 +42,24 @@ class AppointmentForm(forms.ModelForm):
         widgets = {'date': DateTimeInput()}
         fields = '__all__'
         
-     
+
+#Testimonials FORM
+
+class Testimonialsform(forms.ModelForm):
+    name = forms.CharField(required=True, widget=forms.TextInput(
+        attrs={'class':'form-control', 'placeholder':'Name'}
+    ))
+    email = forms.EmailField(required=True, widget=forms.TextInput(
+        attrs={'class':'form-control','placeholder':'Email'}
+    ))
+    age = forms.CharField(required=True,widget=forms.TextInput(
+        attrs={'class':'form-control','placeholder':'Age'}
+    ))
+    
+    description = forms.CharField(required= True, widget=forms.Textarea(
+        attrs={"rows":5, "cols":20, 'class':'form-control','placeholder':'Testimonial'}
+    ))
+    
+    class  Meta:
+        model = Review
+        fields = '__all__'
