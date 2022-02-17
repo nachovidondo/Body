@@ -112,12 +112,12 @@ class TerapeutaList(ListView):
 class Testimonials(ListView, FormMixin):
     model = Review
     template_name = 'review.html'
-    
+
     form_class = Testimonialsform
     fields = ['__all__']
     success_url = reverse_lazy('review')
-    
- 
+
+
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = Testimonialsform()
@@ -127,21 +127,21 @@ class Testimonials(ListView, FormMixin):
         email = self.request.POST.get('email')
         age = self.request.POST.get('age')
         description = self.request.POST.get('description')
-        
+
         testimonials_form = Testimonialsform(data=request.POST)
         if testimonials_form.is_valid():
             mail = EmailMessage(
                 "New Testimonial to BodyWorkz : New Testimonial ",
                 "From {} \n {} \n {}  wrote :\n\n {}".format(name,email,age,description),
                 "bodyworkz.com", ["bodyworkz90@gmail.com"],
-                
+
                 reply_to = [email]
                 )
             mail.send()
             testimonials_form.save()
-        
+
         return redirect(reverse("automatic"))
-        
+
 
 #Appointment
 
@@ -153,7 +153,7 @@ class CreateAppointment(ListView, FormMixin):
     fiels = ['__all__']
     success_url = reverse_lazy('appointment_done')
     context_object_name = "therapy"
-    
+
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
@@ -203,7 +203,7 @@ class CreateAppointment(ListView, FormMixin):
         if str(date) > str(now):
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date: {}  time: {}hs \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for books us , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,time,email,phone_number,terapia,duration,more_time,total_price,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date: {}  time: {}hs \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for book this appointment , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,time,email,phone_number,terapia,duration,more_time,total_price,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()

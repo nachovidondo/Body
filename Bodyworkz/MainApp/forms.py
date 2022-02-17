@@ -19,29 +19,29 @@ class Contactform(forms.Form):
     content = forms.CharField(required= True, widget=forms.Textarea(
         attrs={"rows":5, "cols":20, 'class':'form-control','placeholder':'Message'}
     ))
-    
-    
+
+
 #APPOINTMENT FORM
 
 class DateTimeInput(forms.DateTimeInput):
     input_type = 'date'
-    
+
 class DateTimeForm(forms.Form):
     date= forms.DateField(widget= DateTimeInput())
-   
+
 
 
 class AppointmentForm(forms.ModelForm):
     date = forms.DateTimeInput()
-    i_aceppt_terms_conditions = forms.BooleanField()
-    
-    
+    i_have_read_and_accept_terms_conditions = forms.BooleanField()
+
+
 
     class Meta:
         model = Appointment
         widgets = {'date': DateTimeInput()}
         fields = '__all__'
-        
+
 
 #Testimonials FORM
 
@@ -55,11 +55,11 @@ class Testimonialsform(forms.ModelForm):
     age = forms.CharField(required=True,widget=forms.TextInput(
         attrs={'class':'form-control','placeholder':'Age'}
     ))
-    
+
     description = forms.CharField(required= True, widget=forms.Textarea(
         attrs={"rows":5, "cols":20, 'class':'form-control','placeholder':'Testimonial'}
     ))
-    
+
     class  Meta:
         model = Review
         fields = '__all__'
