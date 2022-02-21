@@ -30,7 +30,7 @@ class Therapy(models.Model):
     short_description = models.CharField(max_length=150, verbose_name="Descripcion corta", blank=True, null=True,default="Massage")
     description = models.TextField()
     therapist = models.ManyToManyField(Therapist, verbose_name= "Terapeuta")
-    duration = models.IntegerField (verbose_name="Duracion (Tiempo) ",blank=True, null=True)
+    duration = models.CharField(max_length=200, verbose_name = "Duracion", default="--")
     price = models.IntegerField(verbose_name="Precio",blank=True, null=True)
 
     class Meta:
