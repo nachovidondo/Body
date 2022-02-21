@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['bodyworkz.pythonanywhere.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +129,17 @@ EMAIL_HOST_PASSWORD = 'Dinamarca2022!'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+JAZZMIN_SETTINGS ={
+    'site_title': ' BodyWorkz Admin',
+    'site_header': 'BodyWorkz Admin',
+    "site_brand": "BodyWorkz",
+    "site_logo_classes": "bodyworkz",
+    "welcome_sign": "Welcome to BodyWorkz Admin",
+    "show_sidebar": True,
+     "navigation_expanded": True,
+
+
+}
