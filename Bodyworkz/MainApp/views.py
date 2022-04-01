@@ -1,5 +1,5 @@
 import email
-from . models import Therapist, Therapy, Review, Appointment, Index
+from . models import Therapist, Therapy, Review, Appointment, Index, AboutUs
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView, View
@@ -227,3 +227,9 @@ def terms_conditions(request):
 
 def appointment_fail(request):
     return render(request,'appointment_fail.html')
+
+def aboutus(request):
+    about = AboutUs.objects.all()
+    therapy = Therapy.objects.all()
+    return render(request,'about-us.html',{'about':about, 'therapy':therapy})
+    

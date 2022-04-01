@@ -1718,6 +1718,7 @@ label {}
     width: 100%;
     object-fit: cover;
     height: 250px;
+    border-radius: 15px;
     /* Half screen */
     /* width: 50%; */
 }

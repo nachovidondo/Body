@@ -69,7 +69,6 @@ p {
 p:last-child {
     margin-bottom: 0px;
     height: 355px;
-
     position: relative;
     max-height: calc(var(--lh) * var(--max-lines));
     overflow: hidden;
@@ -715,6 +714,7 @@ label {}
 
 .bg-default {
     background-color: rgb(223, 236, 189);
+    border-radius: 25px;
 }
 
 .bg-white {
@@ -1718,7 +1718,8 @@ label {}
     /* Buscar imagenes gigantes tipo wallpapers */
     width: 100%;
     object-fit: cover;
-    height: 200px;
+    height: 250px;
+    border-radius: 15px;
     /* Half screen */
     /* width: 50%; */
 }

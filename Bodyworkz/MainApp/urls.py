@@ -16,6 +16,7 @@ urlpatterns = [
     path('article_therapist/<int:therapist_id>/', views.article_therapist, name = "therapist"),
     path('therapist_order', views.TerapeutaList.as_view(), name="therapist_order"),
     path('terms_conditions/',views.terms_conditions, name="terms_conditions"),
-    path('appointment_fail/',views.appointment_fail, name="appointment_fail")
+    path('appointment_fail/',views.appointment_fail, name="appointment_fail"),
+    path('about-us/',views.aboutus, name="about-us")
      
 ]
