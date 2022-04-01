@@ -713,7 +713,8 @@ label {}
 }
 
 .bg-default {
-    background-color: rgb(223, 236, 189);
+    background-color: rgb(255 221 143 / 53%);
+    border-radius:20px;
 }
 
 .bg-white {
