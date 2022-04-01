@@ -200,10 +200,10 @@ class CreateAppointment(ListView, FormMixin):
         total_price = int(price) + int(price_more_time)
 
         #Validation Date
-        if str(date) > str(now):
+        if str(date) >= str(now):
             mail = EmailMessage(
                 "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date: {}  time: {}hs \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for book this appointment , we will contact you as soon as possible! \n \n BodyWorkz".format(name ,surname,date_1,time,email,phone_number,terapia,duration,more_time,total_price,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for the date: {}  time: {}hs \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  Adress: PRINSESSEGADE 4A , CHRISTIANSHAVN, COPENHAGEN" .format(name ,surname,date_1,time,email,phone_number,terapia,duration,more_time,total_price,comments),
                 "bodyworkz.com", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()

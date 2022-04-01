@@ -14,13 +14,13 @@ SECRET_KEY = '0ly#252$u!m@23m81f&+y_jwn56351q$1ba^lyrjvas830p(iu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bodyworkz.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['bodyworkz.pythonanywhere.com', '127.0.0.1','bodyworkz.dk',]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    #'django-jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
