@@ -1394,7 +1394,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
+    color: #375a5f;
     background-color: #fff
 }
 
@@ -1430,7 +1430,6 @@ figure {
 img {
     vertical-align: middle;
     object-fit: cover;
-
 }
 
 .carousel-inner>.item>a>img,

@@ -42,6 +42,7 @@ h1.heading-line:after {
 h2 {
     font-size: 22px;
     line-height: 32px;
+    padding: 0px 40px 0px 40px;
 }
 
 h3 {
@@ -359,8 +360,9 @@ label {}
 }
 
 .btn-primary {
-    background-color: #474747;
-    color: #fff;
+    background-color: #375a5f;
+    color: #fafafa;
+    border-radius: 10px;
 }
 
 .btn-primary:hover {
@@ -715,6 +717,19 @@ label {}
 .bg-default {
     background-color: rgb(255 221 143 / 53%);
     border-radius: 25px;
+}
+
+.bg-default-nacho {
+    background-color: rgb(255 221 143 / 53%);
+    border-radius: 25px;
+    height: 300px;
+}
+
+.bg-default-article {
+    background-color: rgb(255 221 143 / 42%);
+    border-radius: 15px;
+    height: 400px;
+    padding: 35px 35px 35px 35px;
 }
 
 .bg-white {
@@ -2347,6 +2362,8 @@ ul.widget-recent-post {}
 .team-img {
     border-radius: 300px;
     box-shadow: 1px 1px 10px 5px #EEE;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .team-content {

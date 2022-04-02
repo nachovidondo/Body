@@ -11,21 +11,21 @@
                             <img src="{{articles.image.url}} " alt=" " class="top-image">
                         </div>
                         <br>
-                        <div class="service-content">
+                        <div class="service-content bg-default-article">
                             <!-- service content -->
                             <h1 class="title-centered">{{articles.name}}
                             </h1><br>
                             <p>{{articles.description}}</p>
                             <br>
-                            <div>{% if articles.price %}
-                                <h4>Price : $ {{articles.price}} DKK</h4>
+                            {% if articles.price %}
+                                <HTML5>Price : $ {{articles.price}} DKK</h5>
                                 {% endif %} {% if articles.duration %}
         
-                                <h4>Duration : {{articles.duration}} minutes</h4>
+                                <h5>Duration : {{articles.duration}} minutes</h5>
                                 {% endif %} {% if articles.therapist %}
                                
                                 {% endif %}
-                            </div>
+                            
                         </div>
                         <!-- service content -->
                     </div>
@@ -34,7 +34,7 @@
                     
                     <br>
                     <!-- /.service block -->
-                    <button type="button " class="btn btn-secondary btn-lg "> <a href="{% url 'appointment' %} ">Book us</a></button>
+                    <a href="{% url 'appointment' %} "><button type="button " class="btn btn-secondary btn-primary "> Book us</button></a>
                 </div>
                 <br>
             </div>
