@@ -22,13 +22,14 @@ class Therapist(models.Model):
 
     def __str__(self):
         return self.name
+
 class AboutUs(models.Model):
     title = models.CharField(max_length=200,verbose_name="Titulo")
     image = models.ImageField( upload_to="Images")
-    
+
     description = models.TextField(default="R")
 
-    
+
 
     def __str__(self):
         return self.title
@@ -65,10 +66,25 @@ class Review(models.Model):
     def __str__(self):
         return self.name
 
+class Time_Available(models.Model):
+        # choices_time
+        TIME_CHOICES =(
+                ("15:00", "15:00"),
+                ("16:00", "16:00"),
+                ("17:00", "17:00"),
+                ("18:00", "18:00"),
+                ("19:00", "19:00"),
+                ("20:00", "20:00"),
 
+)
+
+        time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
+        date = models.DateTimeField()
+        def __str__(self):
+                return str(self.date.strftime('%d/%m/%Y'))+" "+ self.time
 
 class Appointment(models.Model):
-        # choices_time
+                # choices_time
         TIME_CHOICES =(
                 ("15:00", "15:00"),
                 ("16:00", "16:00"),
@@ -88,6 +104,8 @@ class Appointment(models.Model):
         email = models.EmailField()
         date = models.DateTimeField()
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
+        time_available = models.ForeignKey(Time_Available,on_delete = models.CASCADE, default=1)
+
         therapy = models.ForeignKey( Therapy, on_delete = models.CASCADE)
         more_time = models.CharField( verbose_name = "Please add more time", max_length=255,  choices=ADD_CHOICES, blank=True, null=True, default=None)
         comments = models.TextField(blank=True)

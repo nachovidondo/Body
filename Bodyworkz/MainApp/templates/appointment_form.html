@@ -18,12 +18,12 @@
                 <tbody>
                     {% for terapia in therapy %}
                     <tr>
-                        <td class="bg-success ">
+                        <td class="table-1">
                             <a href="{% url 'article' terapia.id %} " class="tag"> {{terapia.name}}</a>
                         </td>
-                        <td class="bg-danger "> {{terapia.duration}} minutes
+                        <td class="table-2"> {{terapia.duration}} minutes
                         </td>
-                        <td class="bg-primary "> $ {{terapia.price}} DKK
+                        <td class="table-3"> $ {{terapia.price}} DKK
                         </td>
 
 

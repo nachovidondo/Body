@@ -1144,6 +1144,7 @@ label {}
 
 #navigation>ul>li.has-sub>a {
     padding-right: 32px;
+    border-radius:10px;
 }
 
 

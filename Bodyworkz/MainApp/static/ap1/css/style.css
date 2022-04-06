@@ -728,7 +728,7 @@ label {}
 .bg-default-article {
     background-color: rgb(255 221 143 / 42%);
     border-radius: 15px;
-    height: 400px;
+    height: auto;
     padding: 35px 35px 35px 35px;
 }
 
@@ -1150,6 +1150,7 @@ label {}
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
+    border-radius:10px;
 }
 
 #navigation>ul>li:hover>a {
@@ -1743,7 +1744,7 @@ label {}
 
 .service-title {
     font-size: 20px;
-    color: #212330;
+    color: #375a5f;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1px;
@@ -2360,7 +2361,7 @@ ul.widget-recent-post {}
 }
 
 .team-img {
-    border-radius: 300px;
+    border-radius: 10px;
     box-shadow: 1px 1px 10px 5px #EEE;
     margin-bottom: 20px;
     margin-right: 20px;
@@ -2592,6 +2593,18 @@ ul.widget-recent-post {}
         list-style: none;
     }
 }
+.table-1 {
+    background-color: #dee3e0;
+}
+
+.table-2 {
+    background-color: #efdcc1;
+}
+
+.table-3 {
+    background-color: #dee3e0;
+}
+
 
 @media screen and (max-width:320px) {
     .navigation {

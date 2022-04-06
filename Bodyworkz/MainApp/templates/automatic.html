@@ -1,8 +1,55 @@
-{% extends "base.html" %} {% block content %} {% load static %}
+{% extends "base.html" %} {% block content %} {% load static %} {% load crispy_forms_tags %}
+
+<div class="space-medium ">
+    <div class="container ">
+        <div class="row ">
+        </div>
+        <div class="space-medium bg-default">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12 ">
+                        <div class="section-title mb60 text-center ">
+                            <!-- section title start-->
+                            <h1>Thanks for contact us , we will answer you as soon as possible !</h1>
+                        </div>
+                       <a href="{% url 'index' %}"><div class="col-md-9" align="left">
+                            <input type="submit" class="btn btn-primary" value="Home page">
+                        </div></a>
+                    </div>
+                </div>
 
 
-<div margin: 100px auto;>
-    <h2> Thanks for contact us, we will reply to you a soon as possible!
-    </h2>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+<div>
+
+
+
+</div>
+
+
+</div>
+
+</div>
+
 </div>
 {% endblock %}

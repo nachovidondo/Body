@@ -13,19 +13,19 @@
 
     <div class="space-medium ">
         <div class="container ">
-            
+
                     <div class="space-medium bg-default-nacho">
                         <div class="container ">
                             <div class="row ">
                                 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12 ">
                                     <div class="section-title mb60 text-center ">
-                                      <h1>How We Works</h1>
-                                     
+                                      <h1>How We Work</h1>
+
                                         <h4> We travel directly to your home or workplace, so you can enjoy a safer, more convenient, and more rewarding experience.
-                        You only have to contact and wait for us at home. 
+                        You only have to contact and wait for us at home.
                         Our professionals travel with their own massage table and elements to give you the best treatment.
 
-                      
+
                     </h4>
   </div> </div> </div> </div>     </div>
                 </div>
@@ -34,8 +34,9 @@
 
 
             <div class="row" style="display:flex">
-               
-                
+                  <div class="col-6 col-md-10">
+
+
                 {% for terapia in therapy %}
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 " style="width: 25%; float:left; flex: 1;">
                     <div class="service-block">
@@ -52,7 +53,7 @@
                             <h3><a href="{% url 'article' terapia.id %}">{{terapia.name}}</a></h3>
 
                         </div>
-                        
+
 
                         <h6><a href="{% url 'article' terapia.id %}"><b>Read more..</b></a></h6>
 <br>
@@ -66,7 +67,7 @@
 
             </div>
         </div>
-      
+
 </div>
 
     <div class="space-small bg-primary ">

@@ -171,7 +171,7 @@ class CreateAppointment(ListView, FormMixin):
         surname = self.request.POST.get('surname')
         email= self.request.POST.get('email')
         phone_number = self.request.POST.get('phone_number')
-        date = self.request.POST.get('date')
+        date = self.request.POST.get('time_available')
         now= datetime.strftime(timezone.now(), '%Y-%m-%d')
         date_time = datetime.strptime(date,'%Y-%m-%d')
         date_1= date_time.date()
@@ -232,4 +232,3 @@ def aboutus(request):
     about = AboutUs.objects.all()
     therapy = Therapy.objects.all()
     return render(request,'about-us.html',{'about':about, 'therapy':therapy})
-    
