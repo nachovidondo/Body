@@ -83,7 +83,7 @@ class Time_Available(models.Model):
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES, blank=True, null=True)
         date = models.DateTimeField()
         def __str__(self):
-                return str(self.date.strftime("%Y-%m-%d %H:%M"))
+                return str(self.date.strftime("%Y-%m-%d     %H:%M"))
         def __unicode__(self):
                 return self.__str__()
 
