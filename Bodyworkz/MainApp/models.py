@@ -1,5 +1,7 @@
 from datetime import date
 from django.db import models
+from django.db.models.signals import post_save
+
 
 
 class Index(models.Model):
@@ -69,46 +71,33 @@ class Review(models.Model):
 class Time_Available(models.Model):
         # choices_time
         TIME_CHOICES =(
-                ("09:00", "09:00"),
-                ("10:00", "10:00"),
-                ("11:00", "11:00"),
-                ("12:00", "12:00"),
-                ("13:00", "13;00"),
-                ("14:00", "14:00"),
                 ("15:00", "15:00"),
                 ("16:00", "16:00"),
                 ("17:00", "17:00"),
                 ("18:00", "18:00"),
                 ("19:00", "19:00"),
                 ("20:00", "20:00"),
+
 )
 
-        time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
+        time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES, blank=True, null=True)
         date = models.DateTimeField()
-
         def __str__(self):
-                return str(self.date.strftime('%d/%m/%Y'))+" "+ self.time
+                return str(self.date.strftime("%Y-%m-%d %H:%M"))
         def __unicode__(self):
                 return self.__str__()
 
 class Appointment(models.Model):
                 # choices_time
         TIME_CHOICES =(
-                ("09:00", "09:00"),
-                ("10:00", "10:00"),
-                ("11:00", "11:00"),
-                ("12:00", "12:00"),
-                ("13:00", "13;00"),
-                ("14:00", "14:00"),
                 ("15:00", "15:00"),
                 ("16:00", "16:00"),
                 ("17:00", "17:00"),
                 ("18:00", "18:00"),
                 ("19:00", "19:00"),
                 ("20:00", "20:00"),
+
 )
-
-
         ADD_CHOICES =(
                 ("10' more please", "10' more for $25 DKK"),
                 ("20' more please", "20' more for $50 DKK"),
@@ -136,3 +125,13 @@ class Appointment(models.Model):
 
                 return self.name + ' ' + self.surname + ' ' + str(self.therapy)+ ' ' + str(self.date)+ str(self.time)
 
+
+#Signal to control the number of clients in the activity
+def time_available_control(sender, instance, **kwargs):
+    appointment = instance.time_available
+    print(appointment)
+    time_available = Time_Available.objects.filter(id=appointment.id).first()
+    print(time_available)
+    time_available.delete()
+
+post_save.connect(time_available_control,sender=Appointment)

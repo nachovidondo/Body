@@ -1,9 +1,11 @@
 
 from django.forms import DateTimeInput
-from .models import Appointment, Review
+from .models import Appointment, Review, Time_Available
 from django import forms
 from django.forms.widgets import TextInput
 
+
+from datetime import datetime ,timedelta, timezone
 
 
 
@@ -34,8 +36,11 @@ class DateTimeForm(forms.Form):
 class AppointmentForm(forms.ModelForm):
     date = forms.DateTimeInput()
     i_have_read_and_accept_terms_conditions = forms.BooleanField()
-
-
+ #Filter to show activities only from now to the future 
+    def __init__(self, *args, **kargs):
+         super().__init__(*args, **kargs)
+         now = datetime.now(timezone.utc)
+         self.fields['time_available'].queryset = Time_Available.objects.filter(date__gte=now).order_by('date')
 
     class Meta:
         model = Appointment

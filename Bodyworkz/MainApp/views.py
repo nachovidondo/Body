@@ -1,3 +1,5 @@
+
+   
 import email
 from . models import Therapist, Therapy, Review, Appointment, Index, AboutUs, Time_Available
 from django.shortcuts import render
@@ -196,8 +198,8 @@ class CreateAppointment(ListView, FormMixin):
 
         total_price = int(price) + int(price_more_time)
     
-        time_available = Time_Available.objects.get(id=date)
-        print(time_available)
+        time_available = Time_Available.objects.filter(id=date).first()
+
       
 
         if appointment_form.is_valid():
