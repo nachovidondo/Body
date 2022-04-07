@@ -69,31 +69,46 @@ class Review(models.Model):
 class Time_Available(models.Model):
         # choices_time
         TIME_CHOICES =(
+                ("09:00", "09:00"),
+                ("10:00", "10:00"),
+                ("11:00", "11:00"),
+                ("12:00", "12:00"),
+                ("13:00", "13;00"),
+                ("14:00", "14:00"),
                 ("15:00", "15:00"),
                 ("16:00", "16:00"),
                 ("17:00", "17:00"),
                 ("18:00", "18:00"),
                 ("19:00", "19:00"),
                 ("20:00", "20:00"),
-
 )
 
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
         date = models.DateTimeField()
+
         def __str__(self):
                 return str(self.date.strftime('%d/%m/%Y'))+" "+ self.time
+        def __unicode__(self):
+                return self.__str__()
 
 class Appointment(models.Model):
                 # choices_time
         TIME_CHOICES =(
+                ("09:00", "09:00"),
+                ("10:00", "10:00"),
+                ("11:00", "11:00"),
+                ("12:00", "12:00"),
+                ("13:00", "13;00"),
+                ("14:00", "14:00"),
                 ("15:00", "15:00"),
                 ("16:00", "16:00"),
                 ("17:00", "17:00"),
                 ("18:00", "18:00"),
                 ("19:00", "19:00"),
                 ("20:00", "20:00"),
-
 )
+
+
         ADD_CHOICES =(
                 ("10' more please", "10' more for $25 DKK"),
                 ("20' more please", "20' more for $50 DKK"),
@@ -102,8 +117,8 @@ class Appointment(models.Model):
         surname = models.CharField(max_length=255, verbose_name = "Surname")
         phone_number = models.CharField(max_length=255, verbose_name = "Phone number")
         email = models.EmailField()
-        date = models.DateTimeField()
-        time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES)
+        date = models.DateTimeField(blank=True,null=True)
+        time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES,blank=True,null=True)
         time_available = models.ForeignKey(Time_Available,on_delete = models.CASCADE, default=1)
 
         therapy = models.ForeignKey( Therapy, on_delete = models.CASCADE)

@@ -1,5 +1,5 @@
 import email
-from . models import Therapist, Therapy, Review, Appointment, Index, AboutUs
+from . models import Therapist, Therapy, Review, Appointment, Index, AboutUs, Time_Available
 from django.shortcuts import render
 from django.shortcuts import render
 from django.views.generic import ListView, View
@@ -172,10 +172,6 @@ class CreateAppointment(ListView, FormMixin):
         email= self.request.POST.get('email')
         phone_number = self.request.POST.get('phone_number')
         date = self.request.POST.get('time_available')
-        now= datetime.strftime(timezone.now(), '%Y-%m-%d')
-        date_time = datetime.strptime(date,'%Y-%m-%d')
-        date_1= date_time.date()
-        time = self.request.POST.get('time')
         more_time = self.request.POST.get('more_time')
 
         price_more_time=0
@@ -195,25 +191,31 @@ class CreateAppointment(ListView, FormMixin):
         duration = str(query_therapy.duration)
 
         comments = self.request.POST.get('comments')
-        appointmnet_form = AppointmentForm(data=request.POST)
+        appointment_form = AppointmentForm(data=request.POST)
+        appointment_form.save()
 
         total_price = int(price) + int(price_more_time)
+    
+        time_available = Time_Available.objects.get(id=date)
+        print(time_available)
+      
 
-        #Validation Date
-        if str(date) >= str(now):
+        if appointment_form.is_valid():
             mail = EmailMessage(
-                "Bodyworkz Massage : NEW APPOINTMENT ",
-                "Hello!  {} {}\n\n Your booking confirmation for the date: {}  time: {}hs \n\n  Email  {}\n \n Phone number {} \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price $ {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  Adress: PRINSESSEGADE 4A , CHRISTIANSHAVN, COPENHAGEN" .format(name ,surname,date_1,time,email,phone_number,terapia,duration,more_time,total_price,comments),
-                "bodyworkz.com", ["nachovidondo@gmail.com",email],
+                "Bodyworkz Appoiment  : NEW APPOINTMENT CONFIRMED ",
+                "Hello!  {} {}\n\n Your booking confirmation for  {}hs \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price  {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  Adress: PRINSESSEGADE 4A , CHRISTIANSHAVN, COPENHAGEN" .format(name ,surname,time_available,terapia,duration,more_time,total_price,comments),
+               
+                "bodyworkz.dk", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
             mail.send()
+      
 
             #Function to get the client in Google calendar
 
             #create_event(name,surname,date,time,phone_number,email,terapia,comments)
 
             #Its everthing ok ? save it.
-            appointmnet_form.save()
+        
         else:
             return redirect(reverse("appointment_fail"))
 
