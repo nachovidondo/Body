@@ -175,6 +175,7 @@ class CreateAppointment(ListView, FormMixin):
         phone_number = self.request.POST.get('phone_number')
         date = self.request.POST.get('time_available')
         more_time = self.request.POST.get('more_time')
+        address = self.request.POST.get('address')
 
         price_more_time=0
         if more_time == "10' more please":
@@ -205,7 +206,7 @@ class CreateAppointment(ListView, FormMixin):
         if appointment_form.is_valid():
             mail = EmailMessage(
                 "Bodyworkz Appoiment  : NEW APPOINTMENT CONFIRMED ",
-                "Hello!  {} {}\n\n Your booking confirmation for  {}hs \n \n Therapy {} \n \n Therapy time {} minutes + {} additional\n \n Price  {} DKK \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  Adress: PRINSESSEGADE 4A , CHRISTIANSHAVN, COPENHAGEN" .format(name ,surname,time_available,terapia,duration,more_time,total_price,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for  {}hs \n \n Therapy: {} \n \n Therapy time:  {} minutes + {} additional\n \n Price  {} DKK \n \n Address: {} \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  " .format(name ,surname,time_available,terapia,duration,more_time,total_price,address,comments),
                
                 "bodyworkz.dk", ["nachovidondo@gmail.com",email],
                 reply_to = [email])

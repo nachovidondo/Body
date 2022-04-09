@@ -45,7 +45,7 @@ class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
         widgets = {'date': DateTimeInput()}
-        fields = ['name','surname','phone_number','email','time_available','therapy','more_time','comments',]
+        fields = ['name','surname','phone_number','email','time_available','therapy','more_time','address','comments',]
 
 #Testimonials FORM
 

@@ -112,7 +112,9 @@ class Appointment(models.Model):
         email = models.EmailField()
         date = models.DateTimeField(blank=True,null=True)
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES,blank=True,null=True)
-        time_available = models.ForeignKey(Time_Available,on_delete = models.CASCADE, default=1)
+        time_available = models.ForeignKey(Time_Available,on_delete = models.CASCADE, default=1,verbose_name="Available time")
+        address= models.CharField(max_length=255,default="----", verbose_name="Your address")
+    
 
         therapy = models.ForeignKey( Therapy, on_delete = models.CASCADE)
         more_time = models.CharField( verbose_name = "Please add more time", max_length=255,  choices=ADD_CHOICES, blank=True, null=True, default=None)
