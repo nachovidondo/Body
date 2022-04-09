@@ -40,7 +40,7 @@ class AppointmentForm(forms.ModelForm):
     def __init__(self, *args, **kargs):
          super().__init__(*args, **kargs)
          now = datetime.now(timezone.utc)
-         self.fields['time_available'].queryset = Time_Available.objects.filter(date__gte=now).order_by('date')
+         self.fields['time_available'].queryset = Time_Available.objects.filter(date__gte=now).filter(status=True).order_by('date')
 
     class Meta:
         model = Appointment

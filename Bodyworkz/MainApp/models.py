@@ -1,6 +1,9 @@
 from datetime import date
 from django.db import models
+
 from django.db.models.signals import post_save
+    
+from django.dispatch import receiver
 
 
 
@@ -82,8 +85,9 @@ class Time_Available(models.Model):
 
         time = models.CharField( verbose_name = "Time", max_length=255,  choices=TIME_CHOICES, blank=True, null=True)
         date = models.DateTimeField()
+        status = models.BooleanField(default=True)
         def __str__(self):
-                return str(self.date.strftime("%Y-%m-%d     %H:%M"))
+                return str(self.date.strftime("%Y-%m-%d %H:%M"))
         def __unicode__(self):
                 return self.__str__()
 
@@ -126,12 +130,14 @@ class Appointment(models.Model):
                 return self.name + ' ' + self.surname + ' ' + str(self.therapy)+ ' ' + str(self.date)+ str(self.time)
 
 
+
+@receiver(post_save,sender=Appointment)
 #Signal to control the number of clients in the activity
 def time_available_control(sender, instance, **kwargs):
     appointment = instance.time_available
-    print(appointment)
-    time_available = Time_Available.objects.filter(id=appointment.id).first()
-    print(time_available)
-    time_available.delete()
+    times = Time_Available.objects.get(id=appointment.id)
+    if times.status is True:
+            times.status=False
+            times.save()
 
-post_save.connect(time_available_control,sender=Appointment)
+ 
