@@ -2,9 +2,10 @@ from datetime import date
 from django.db import models
 
 from django.db.models.signals import post_save
+from django.shortcuts import reverse
     
 from django.dispatch import receiver
-
+from django.contrib.sitemaps import Sitemap
 
 
 class Index(models.Model):
@@ -53,9 +54,13 @@ class Therapy(models.Model):
     class Meta:
             verbose_name="Terapia"
             verbose_name_plural="Terapias"
+            
 
     def __str__(self):
         return str(self.name)
+    def get_absolute_url(self):
+        return reverse("article", args=[self.id,])
+    
 
 
 class Review(models.Model):
@@ -143,3 +148,6 @@ def time_available_control(sender, instance, **kwargs):
             times.save()
 
  
+class TherapiesSitemaps(Sitemap):
+        def items(self):
+                return Therapy.objects.all()

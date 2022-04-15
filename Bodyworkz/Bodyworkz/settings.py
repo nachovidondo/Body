@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MainApp',
     'crispy_forms',
+    'django.contrib.sitemaps',
 
     ]
 
