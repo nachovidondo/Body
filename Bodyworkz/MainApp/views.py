@@ -206,7 +206,7 @@ class CreateAppointment(ListView, FormMixin):
         if appointment_form.is_valid():
             mail = EmailMessage(
                 "Bodyworkz Appoiment  : NEW APPOINTMENT CONFIRMED ",
-                "Hello!  {} {}\n\n Your booking confirmation for  {}hs \n \n Therapy: {} \n \n Therapy time:  {} minutes + {} additional\n \n Price  {} DKK \n \n Address: {} \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  " .format(name ,surname,time_available,terapia,duration,more_time,total_price,address,comments),
+                "Hello!  {} {}\n\n Your booking confirmation for  {}hs \n \n Therapy: {} \n \n Therapy time:  {} minutes + {} additional\n \n Price :  {} DKK + 150 DKK ( fee of mobility to the client's house ) . \n \n Address: {} \n \n Comments :\n  {} \n \n \n \n Thanks for booking this appointment , we will contact you as soon as possible!   \n \n  BodyWorkz -  " .format(name ,surname,time_available,terapia,duration,more_time,total_price,address,comments),
                
                 "bodyworkz.dk", ["nachovidondo@gmail.com",email],
                 reply_to = [email])
