@@ -18,20 +18,20 @@
                             <p>{{articles.description}}</p>
                             <br>
                             {% if articles.price %}
-                                <HTML5>Price : $ {{articles.price}} DKK</h5>
+                                <HTML5>Price :  {{articles.price}} DKK</h5>
                                 {% endif %} {% if articles.duration %}
-        
+
                                 <h5>Duration : {{articles.duration}} minutes</h5>
                                 {% endif %} {% if articles.therapist %}
-                               
+
                                 {% endif %}
-                            
+
                         </div>
                         <!-- service content -->
                     </div>
-                    
+
                     <!-- service img -->
-                    
+
                     <br>
                     <!-- /.service block -->
                     <a href="{% url 'appointment' %} "><button type="button " class="btn btn-secondary btn-primary "> Book us</button></a>
